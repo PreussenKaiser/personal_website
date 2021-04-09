@@ -1,0 +1,1 @@
+A personal website/portfolio. This will showcase projects I've worked on, my resume, and information about me for potential employers. 
