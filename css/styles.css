@@ -1,0 +1,149 @@
+/* General Styles */
+* {
+    font-family: sans-serif;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    line-height: 1.85rem;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+    height: 6.5vh;
+}
+.navbar > a {
+    font-family: monospace;
+    font-weight: bold;
+    position: fixed;
+    font-size: 1.5rem;
+    color: black;
+    left: 1rem;
+    margin: .5rem 0 .75rem 0;
+    text-decoration: none;
+}
+
+
+/* Masthead Styles */
+.masthead {
+    background-color: #343a40;
+    text-align: center;
+    height: 93.5vh;
+}
+.masthead > .header-content {
+    padding-top: 30vh;
+}
+.masthead > .header-content > h1 {
+    font-size: 4rem;
+}
+.masthead > .header-content > h2 {
+    padding-bottom: 1.5rem;
+}
+@media (min-width: 578px) {
+    .masthead > .header-content > h1 {
+        font-size: 5rem;
+    }
+}
+
+
+/* Button Styles */
+.btn {
+    font-size: 1.1rem;
+    text-decoration: none;
+    background-color: #343a40;
+    border: medium solid red;
+    min-width: 5rem;
+    padding: .5rem;
+    margin-left: 1rem;
+}
+.btn:hover, .btn:focus {
+    background-color: red;
+}
+
+
+/* Contact Icon Styles */
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+}
+
+
+/* Rounded Circle Styles */
+.rounded-circle {
+    display: inline-block;
+    background-color: #ff0000;
+    border-radius: 50%;
+    min-height: 50px;
+    min-width: 50px;
+}
+.rounded-circle:hover {
+    background-color: #ff0000d0;
+}
+.rounded-circle > .icon {
+    display: block;
+    text-decoration: none;
+    padding: 1.5rem;
+}
+
+
+/* Content Section Styles */
+.content-section {
+    background-color: #343a40;
+    height: 93.5vh;
+}
+.content-section:nth-of-type(odd) {
+    background-color: #212427;
+}
+
+
+/* Container Styles */
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 1rem;
+    position: relative;
+}
+@media (min-width: 578px) {
+    .container {
+        grid-template-columns: auto auto;
+    }
+}
+
+
+/* Column Styles */
+.col {
+    max-width: 600px;
+    margin: 0 auto 0 auto;
+}
+
+
+/* Text Center Styles */
+.text-center {
+    display: grid;
+    grid-template-columns: auto;
+    text-align: center;
+
+    margin: 0;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
