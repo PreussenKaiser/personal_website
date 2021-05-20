@@ -1,7 +1,18 @@
+/* Variables */
+:root {
+    --primary-color: #343a40;
+    --secondary-color: #212427;
+    --accent-color: #ff0000;
+    --accent-color-hover: #ff0000d0;
+    --text-color: white;
+    --nav-color: black;
+}
+
+
 /* General Styles */
 * {
     font-family: sans-serif;
-    color: white;
+    color: var(--text-color);
     padding: 0;
     margin: 0;
 }
@@ -11,22 +22,27 @@ h1 {
     text-align: center;
 }
 
-p {
+p, li {
     font-size: 1.1rem;
     margin-top: 1rem;
     line-height: 1.85rem;
+}
+
+ol, ul {
+    padding-left: 1rem;
 }
 
 a:hover {
     opacity: 80%;
 }
 
+
 /* Navbar Styles */
 .navbar {
     position: sticky;
     top: 0;
     z-index: 1;
-    background-color: white;
+    background-color: var(--text-color);
     height: 6.5vh;
 }
 .navbar > a {
@@ -34,7 +50,7 @@ a:hover {
     font-weight: bold;
     position: fixed;
     font-size: 1.5rem;
-    color: black;
+    color: var(--nav-color);
     left: 1rem;
     margin: .5rem 0 .75rem 0;
     text-decoration: none;
@@ -43,7 +59,7 @@ a:hover {
 
 /* Masthead Styles */
 .masthead {
-    background-color: #343a40;
+    background-color: var(--primary-color);
     text-align: center;
     height: 93.5vh;
 }
@@ -67,22 +83,27 @@ a:hover {
 .btn {
     font-size: 1.1rem;
     text-decoration: none;
-    background-color: #343a40;
-    border: medium solid red;
-    min-width: 5rem;
+    background-color: var(--primary-color);
+    border: medium solid var(--accent-color);
     padding: .5rem;
-    margin-left: 1rem;
+    min-width: 5rem;
 }
 .btn:hover, .btn:focus {
-    background-color: red;
+    background-color: var(--accent-color);
+    opacity: 100%;
+}
+
+
+/* Button Cluster Styles */
+.button-cluster {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
 
 /* Contact Icon Styles */
 .contact-icons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
     position: absolute;
     bottom: 1rem;
     left: 0;
@@ -93,13 +114,13 @@ a:hover {
 /* Rounded Circle Styles */
 .rounded-circle {
     display: inline-block;
-    background-color: #ff0000;
+    background-color: var(--accent-color);
     border-radius: 50%;
     min-height: 50px;
     min-width: 50px;
 }
 .rounded-circle:hover {
-    background-color: #ff0000d0;
+    background-color: var(--accent-color-hover);
 }
 .rounded-circle > .icon {
     display: block;
@@ -110,11 +131,12 @@ a:hover {
 
 /* Content Section Styles */
 .content-section {
-    background-color: #343a40;
-    height: 93.5vh;
+    background-color: var(--primary-color);
+    height: 100%;
+    min-height: 93.5vh;
 }
 .content-section:nth-of-type(odd) {
-    background-color: #212427;
+    background-color: var(--secondary-color);
 }
 
 
@@ -126,7 +148,7 @@ a:hover {
 
 /* Subheader Styles */
 .subheader {
-    margin-top: 2rem;
+    margin: 2rem 2rem 2rem 0;
 }
 
 
@@ -154,19 +176,30 @@ a:hover {
 
 /* Center Styles */
 .center {
-    display: grid;
-    grid-template-columns: auto;
+    display: flex;
+    align-items: center;
     text-align: center;
-
-    margin: 0;
-    position: relative;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    transform: translateY(100%);
 }
 
 
 /* Text Left Styles */
 .text-left {
     text-align: left;
+}
+
+
+/* Line Styles */
+.line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.line:before,
+.line:after {
+    content: '';
+    border-top: 5px solid;
+    margin: 0 25px 0 25px;
+    flex: 1 0 20px;
+    max-width: 7.5rem;
 }
