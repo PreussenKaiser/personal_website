@@ -24,12 +24,15 @@ h1 {
 
 p, li {
     font-size: 1.1rem;
-    margin-top: 1rem;
+    line-height: 1.85rem;
+}
+
+li {
     line-height: 1.85rem;
 }
 
 ol, ul {
-    padding-left: 1rem;
+    padding: 1rem;
 }
 
 a:hover {
