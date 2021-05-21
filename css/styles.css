@@ -51,10 +51,11 @@ a:hover {
 .navbar > a {
     font-family: monospace;
     font-weight: bold;
-    position: fixed;
+    position: sticky;
     font-size: 1.5rem;
     color: var(--nav-color);
-    left: 1rem;
+    top: 100%;
+    left: 2rem;
     margin: .5rem 0 .75rem 0;
     text-decoration: none;
 }
