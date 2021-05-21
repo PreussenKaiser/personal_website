@@ -20,6 +20,7 @@
 h1 {
     font-size: 3rem;
     text-align: center;
+    padding: 1rem;
 }
 
 p, li {
@@ -183,7 +184,7 @@ a:hover {
     display: flex;
     align-items: center;
     text-align: center;
-    transform: translateY(100%);
+    transform: translateY(50%);
 }
 
 
