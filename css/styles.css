@@ -139,6 +139,7 @@ a:hover {
     background-color: var(--primary-color);
     height: 100%;
     min-height: 93.5vh;
+    padding: 1rem;
 }
 .content-section:nth-of-type(odd) {
     background-color: var(--secondary-color);
@@ -147,7 +148,7 @@ a:hover {
 
 /* Section Header Styles */
 .section-header {
-    padding: 3rem;
+    padding: 2rem;
 }
 
 
@@ -162,7 +163,6 @@ a:hover {
     display: grid;
     grid-template-columns: auto;
     gap: 1rem;
-    position: relative;
 }
 @media (min-width: 578px) {
     .row {
@@ -174,7 +174,7 @@ a:hover {
 /* Column Styles */
 .col {
     max-width: 600px;
-    padding: 0 1.25rem;
+    padding: 0 1rem;
     margin: 0 auto 0 auto;
 }
 
@@ -184,7 +184,7 @@ a:hover {
     display: flex;
     align-items: center;
     text-align: center;
-    transform: translateY(50%);
+    transform: translateY(75%);
 }
 
 
@@ -204,7 +204,7 @@ a:hover {
 .line:after {
     content: '';
     border-top: 5px solid;
-    margin: 0 25px 0 25px;
+    margin: 0 25px;
     flex: 1 0 20px;
     max-width: 7.5rem;
 }
