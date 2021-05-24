@@ -36,6 +36,10 @@ ol, ul {
     padding: 1rem;
 }
 
+a:hover {
+    opacity: 80%;
+}
+
 
 /* Navbar Styles */
 .navbar {
@@ -82,65 +86,17 @@ ol, ul {
 
 /* Button Styles */
 .btn {
-    box-sizing: border-box;
-    background-color: transparent;
-    border: 2px solid var(--accent-color);
-    color: var(--text-color);
-    cursor: pointer;
-    display: flex;
-    align-self: center;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
-    margin: 5px;
-    padding: 1.2em 2.8em;
+    font-size: 1.1rem;
     text-decoration: none;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 700;
+    background-color: var(--primary-color);
+    border: medium solid var(--accent-color);
+    padding: .75rem 1.25rem;
+    min-width: 5rem;
+    transition: background-color 150ms ease-in-out;
 }
 .btn:hover, .btn:focus {
-    color: #fff;
-    outline: 0;
-}
-.btn:nth-of-type(odd) {
-    border-color: var(--accent-color);
-    background-image: linear-gradient(45deg, var(--accent-color) 50%, transparent 50%);
-    background-position: 100%;
-    background-size: 400%;
-    transition: background 300ms ease-in-out;
-}
-.btn:nth-of-type(odd):hover {
-    background-position: 0;
-}
-.btn:nth-of-type(even) {
-    border-color: var(--accent-color);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    transition: color 150ms ease-in-out;
-}
-.btn:nth-of-type(even):after {
-    content: '';
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 100%;
-    background: var(--accent-color);
-    z-index: -1;
-    transition: width 150ms ease-in-out;
-}
-.btn:nth-of-type(even):hover:after {
-    width: 110%;
-}
-
-
-/* Link Styles */
-.link:hover {
-    opacity: 80%;
+    background-color: var(--accent-color);
+    opacity: 100%;
 }
 
 
@@ -149,6 +105,18 @@ ol, ul {
     display: flex;
     justify-content: center;
     gap: 1rem;
+    padding: 0 40px;
+}
+
+
+/* Button Nav Styles */
+.button-nav {
+    flex-direction: column;
+}
+@media(min-width: 578px) {
+    .button-nav {
+        flex-direction: row;
+    }
 }
 
 
@@ -172,6 +140,7 @@ ol, ul {
 }
 .rounded-circle:hover {
     background-color: var(--accent-color-hover);
+    opacity: 100%;
 }
 .rounded-circle > .icon {
     display: block;
