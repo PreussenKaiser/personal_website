@@ -21,9 +21,8 @@
 .masthead > .header-content > h2 {
   padding-bottom: 1.5rem;
 }
-.masthead > .button-cluster {
-  position: absolute;
-  bottom: 1rem;
+.masthead .btn {
+  background-color: rgba(0, 0, 0, 0.25);
 }
 /* Content Section Styles */
 .content-section {
@@ -144,11 +143,6 @@ a:hover {
   background-color: #6495ed;
   opacity: 100%;
 }
-@media (min-width: 768px) {
-  .btn {
-    background-color: rgba(0, 0, 0, 0.25);
-  }
-}
 /* Button Cluster Styles */
 .button-cluster {
   display: flex;
@@ -167,10 +161,8 @@ a:hover {
 }
 /* Contact Icon Styles */
 .contact-icons {
-  position: relative;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: absolute;
+  bottom: 16px;
 }
 /* Rounded Circle Styles */
 .rounded-circle {
