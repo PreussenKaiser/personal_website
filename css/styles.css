@@ -5,7 +5,8 @@
 /* Screen sizes */
 /* Masthead Styles */
 .masthead {
-  background-color: #343a40;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/jupiter.jpg'), no-repeat;
+  background-size: cover;
   text-align: center;
   height: 100vh;
 }
@@ -29,7 +30,10 @@
   background-color: #343a40;
   height: 100%;
   min-height: 100vh;
-  padding: 1rem;
+  padding: 16px;
+}
+.content-section > .button-cluster {
+  margin-top: 32px;
 }
 .content-section:nth-of-type(odd) {
   background-color: #212427;
@@ -129,7 +133,7 @@ a:hover {
 .btn {
   font-size: 1.1rem;
   text-decoration: none;
-  background-color: #343a40;
+  text-align: center;
   border: medium solid #6495ed;
   padding: 0.75rem 1.25rem;
   min-width: 5rem;
@@ -139,6 +143,11 @@ a:hover {
 .btn:focus {
   background-color: #6495ed;
   opacity: 100%;
+}
+@media (min-width: 768px) {
+  .btn {
+    background-color: rgba(0, 0, 0, 0.25);
+  }
 }
 /* Button Cluster Styles */
 .button-cluster {
@@ -187,4 +196,7 @@ a:hover {
   color: white;
   padding: 0;
   margin: 0;
+}
+html {
+  scroll-behavior: smooth;
 }
