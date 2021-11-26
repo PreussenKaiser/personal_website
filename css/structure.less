@@ -1,0 +1,64 @@
+/* Masthead Styles */
+.masthead {
+    background-color: @primary-color;
+    text-align: center;
+    height: 100vh;
+
+    > .header-content {
+        > h1 {
+            font-size: 4rem;
+
+            @media (min-width: @screen-sm) {
+                font-size: 5rem;
+            }
+        }
+        > h2 {
+            padding-bottom: 1.5rem;
+        }
+    }
+
+    > .button-cluster {
+        position: absolute;
+        bottom: 1rem;
+    }
+}
+
+/* Content Section Styles */
+.content-section {
+    background-color: @primary-color;
+    height: 100%;
+    min-height: 100vh;
+    padding: 1rem;
+
+    &:nth-of-type(odd) {
+        background-color: @secondary-color;
+    }
+}
+
+/* Section Header Styles */
+.section-header {
+    padding: 2rem;
+}
+
+/* Subheader Styles */
+.subheader {
+    margin: 2rem 2rem 2rem 0;
+}
+
+/* Row Styles */
+.row {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 1rem;
+
+    @media (min-width: @screen-sm) {
+        grid-template-columns: auto auto;
+    }
+}
+
+/* Column Styles */
+.col {
+    max-width: 600px;
+    padding: 0 1rem;
+    margin: 0 auto 0 auto;
+}
