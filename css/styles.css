@@ -5,7 +5,7 @@
 /* Screen sizes */
 /* Masthead Styles */
 .masthead {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/jupiter.jpg'), no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../img/jupiter.jpg'), no-repeat;
   background-size: cover;
   text-align: center;
   height: 100vh;
@@ -96,6 +96,9 @@ li {
 ol,
 ul {
   padding: 1rem;
+}
+a {
+  color: white;
 }
 a:hover {
   opacity: 80%;
