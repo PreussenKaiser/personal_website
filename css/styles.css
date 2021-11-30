@@ -62,6 +62,60 @@
   padding: 0 1rem;
   margin: 0 auto 0 auto;
 }
+/* Button Styles */
+.btn {
+  font-size: 1.1rem;
+  text-decoration: none;
+  text-align: center;
+  border: medium solid #6495ed;
+  padding: 0.75rem 1.25rem;
+  min-width: 5rem;
+  transition: background-color 150ms ease-in-out;
+}
+.btn:hover,
+.btn:focus {
+  background-color: #6495ed;
+  opacity: 100%;
+}
+/* Button Cluster Styles */
+.button-cluster {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 40px;
+}
+/* Button Nav Styles */
+.button-nav {
+  flex-direction: column;
+}
+@media (min-width: 568px) {
+  .button-nav {
+    flex-direction: row;
+  }
+}
+/* Contact Icon Styles */
+.contact-icons {
+  position: absolute;
+  bottom: 16px;
+}
+/* Rounded Circle Styles */
+.rounded-circle {
+  display: inline-block;
+  background-color: #6495ed;
+  border-radius: 50%;
+  min-height: 50px;
+  min-width: 50px;
+  transition: background-color 150ms ease-in-out;
+}
+.rounded-circle > .icon {
+  display: block;
+  text-decoration: none;
+  padding: 1.5rem;
+}
+.rounded-circle:hover {
+  background-color: #6495edd0;
+  opacity: 100%;
+}
 /* Navbar Styles
 .navbar {
     position: sticky;
@@ -130,60 +184,6 @@ a:hover {
   margin: 0 25px;
   flex: 1 0 20px;
   max-width: 7.5rem;
-}
-/* Button Styles */
-.btn {
-  font-size: 1.1rem;
-  text-decoration: none;
-  text-align: center;
-  border: medium solid #6495ed;
-  padding: 0.75rem 1.25rem;
-  min-width: 5rem;
-  transition: background-color 150ms ease-in-out;
-}
-.btn:hover,
-.btn:focus {
-  background-color: #6495ed;
-  opacity: 100%;
-}
-/* Button Cluster Styles */
-.button-cluster {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  padding: 0 40px;
-}
-/* Button Nav Styles */
-.button-nav {
-  flex-direction: column;
-}
-@media (min-width: 568px) {
-  .button-nav {
-    flex-direction: row;
-  }
-}
-/* Contact Icon Styles */
-.contact-icons {
-  position: absolute;
-  bottom: 16px;
-}
-/* Rounded Circle Styles */
-.rounded-circle {
-  display: inline-block;
-  background-color: #6495ed;
-  border-radius: 50%;
-  min-height: 50px;
-  min-width: 50px;
-  transition: background-color 150ms ease-in-out;
-}
-.rounded-circle > .icon {
-  display: block;
-  text-decoration: none;
-  padding: 1.5rem;
-}
-.rounded-circle:hover {
-  background-color: #6495edd0;
-  opacity: 100%;
 }
 /* General Styles */
 * {
