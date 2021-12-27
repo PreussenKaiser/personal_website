@@ -144,6 +144,10 @@ li {
   font-size: 1.1rem;
   line-height: 1.85rem;
 }
+p {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
 li {
   line-height: 1.85rem;
 }
