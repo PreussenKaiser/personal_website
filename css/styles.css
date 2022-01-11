@@ -15,11 +15,11 @@
 }
 @media (min-width: 568px) {
   .masthead > .header-content > h1 {
-    font-size: 5rem;
+    font-size: 80px;
   }
 }
 .masthead > .header-content > h2 {
-  padding-bottom: 1.5rem;
+  padding-bottom: 24px;
 }
 .masthead .btn {
   background-color: rgba(0, 0, 0, 0.25);
@@ -39,17 +39,17 @@
 }
 /* Section Header Styles */
 .section-header {
-  padding: 2rem;
+  padding: 32px;
 }
 /* Subheader Styles */
 .subheader {
-  margin: 2rem 2rem 2rem 0;
+  margin: 32px 32px 32px 0;
 }
 /* Row Styles */
 .row {
   display: grid;
   grid-template-columns: auto;
-  gap: 1rem;
+  gap: 16px;
 }
 @media (min-width: 568px) {
   .row {
@@ -59,7 +59,7 @@
 /* Column Styles */
 .col {
   max-width: 600px;
-  padding: 0 1rem;
+  padding: 0 16px;
   margin: 0 auto 0 auto;
 }
 /* Button Styles */
@@ -68,7 +68,7 @@
   text-decoration: none;
   text-align: center;
   border: medium solid #6495ed;
-  padding: 0.75rem 1.25rem;
+  padding: 12px 20px;
   min-width: 5rem;
   transition: background-color 150ms ease-in-out;
 }
@@ -81,7 +81,7 @@
 .button-cluster {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 16px;
   padding: 0 40px;
 }
 /* Button Nav Styles */
@@ -110,34 +110,16 @@
 .rounded-circle > .icon {
   display: block;
   text-decoration: none;
-  padding: 1.5rem;
+  padding: 24px;
 }
 .rounded-circle:hover {
   background-color: #6495edd0;
   opacity: 100%;
 }
-/* Navbar Styles
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: @text-color;
-    height: 56px;
-    padding: 0 32px;
-
-    > a {
-        font-family: monospace;
-        font-weight: bold;
-        font-size: 1.5rem;
-        color: @nav-color;
-        text-decoration: none;
-    }
-}
-*/
 h1 {
   font-size: 3rem;
   text-align: center;
-  padding: 1rem;
+  padding: 16px;
 }
 p,
 li {
@@ -153,7 +135,7 @@ li {
 }
 ol,
 ul {
-  padding: 1rem;
+  padding: 0 16px;
 }
 a {
   color: white;
@@ -187,7 +169,7 @@ a:hover {
   border-top: 5px solid;
   margin: 0 25px;
   flex: 1 0 20px;
-  max-width: 7.5rem;
+  max-width: 120px;
 }
 /* General Styles */
 * {
