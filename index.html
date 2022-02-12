@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="IT SoftDev student at Mid-State Technical College. Made this website from scratch so I must love programming (seriously though look at my projects).">
         <title>Karl Lukan</title>
+        <link rel="icon" href="img/icon.png">
         <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
         <link href="css/styles.css" rel="stylesheet">
     </head>
@@ -39,8 +40,8 @@
                     <h1>About Me</h1>
                     <p>
                         My name is Karl Lukan and I'm majoring in the IT Software Developer program at Mid-State Technical College.
-                        I'm primarily into application development, but I also love anything related to programming.
-                        Consequently, I'm a pretty huge nerd - anything tech/science related just makes my synapses fire.
+                        I'm primarily into application development, but I just love programming in general.
+                        Consequently, I'm a pretty huge nerd - anything related to tech/science makes my synapses fire.
                     </p>
                 </div>
             </div>
@@ -54,7 +55,7 @@
         <section class="content-section center" id="projects">
             <h1 class="section-header line">Projects</h1>
             <div class="row">
-                <div class="col text-left">
+                <div class="col">
                     <a href="https://github.com/PreussenKaiser/Mootra" target="_blank" class="link">
                         <h2 class="subheader">Mootra</h2>
                     </a>
@@ -68,9 +69,10 @@
                         <h2 class="subheader">DeleteBinObj</h2>
                     </a>
                     <p>
-                        This is a console application that deletes \bin and \obj directories in a C# solution.
-                        Used this to automate tasks in school but it may be useful for others.
-                        Built for extendability incase you wanted to fork it.
+                        A .NET CLI tool that deletes \bin and \obj directories in a VS solution.
+                        Originally built to automate a submission process for school.
+                        Since then I've published it as a Nuget and Cargo package;
+                        you can find the nuget package <a href="https://www.nuget.org/packages/DeleteBinObj/">here</a>, and the cargo crate <a href="https://crates.io/crates/delete_bin_obj">here</a>
                     </p>
                 </div>
                 <div class="col">
@@ -78,15 +80,17 @@
                         <h2 class="subheader">MootraWeb</h2>
                     </a>
                     <p>
-                        A simple mood tracker built with Blazor Server.
-                        Data is stored locally in JSON and you can perform create and delete operations (I'll add update later).
+                        Same as Mootra but built with Blazor Server!
+                        Data is stored locally in JSON and you can perform CRD operations (no update yet, I'll add that later).
+                        Razor files are pretty neat.
                     </p>
 
-                    <a href="https://github.com/PreussenKaiser/pkaisers-redpanda" target="_blank" class="link">
-                        <h2 class="subheader">PKaiser's RedPanda</h2>
+                    <a href="https://github.com/PreussenKaiser/personal_website" target="_blank" class="link">
+                        <h2 class="subheader">This website!</h2>
                     </a>
                     <p>
-                        A small Minecraft mod that adds red pandas and an endgame item related to them.
+                        Built this website with the experience I gained from interning at <a href="https://wildcardcorp.com/">Wildcard Corp</a>.
+                        Styling is handled with the Less CSS preprocessor.
                     </p>
                 </div>
             </div>
@@ -109,21 +113,24 @@
                     </p>
 
                     <p>
-                        I really enjoy C# as a language and .NET in general due to how easy it is to create cross platofrm applications.
-                        With just one language I can work on a mobile app, then switch right into making games without switching languages.
+                        I really enjoy C# as a language and .NET in general due to how easy it is to create cross platform applications.
+                        With just one language I can work on a mobile app, then switch to making games without changing languages.
                     </p>
                 </div>
                 <div class="col">
-                    <h2 class="subheader text-left">Comfortable with</h2>
+                    <h2 class="subheader">
+                        Comfortable with<br>
+                        <span class="sub-text">(in no particular order)</span>
+                    </h2>
 
-                    <ol>
-                        <li>C#, Xamarin</li>
-                        <li>OOP</li>
+                    <ul>
+                        <li>C#</li>
+                        <li>Java</li>
                         <li>HTML/CSS/JS</li>
-                        <li>Bootstrap, JQuery, Less.js</li>
-                        <li>Git</li>
-                        <li>Agile development</li>
-                    </ol>
+                        <li>Bootstrap, Less.js, Typescript</li>
+                        <li>Xamarin</li>
+                        <li>OOP</li>
+                    </ul>
                 </div>
             </div>
 
