@@ -5,6 +5,9 @@
 .full-page-section {
   min-height: 100vh;
 }
+.header {
+  border-radius: 0 0 32px 32px;
+}
 .bg-darken {
   background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
 }

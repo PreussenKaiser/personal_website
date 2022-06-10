@@ -1,4 +1,6 @@
 ﻿@{
+    this.ViewData["Title"] = "Account Settings";
+
     if (this.ViewData.TryGetValue("ParentLayout", out var parentLayout))
     {
         this.Layout = (string)parentLayout;
@@ -11,9 +13,9 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 bg-black p-5">
+        <div class="col-12 header bg-black p-5">
             <h1 class="display-4 fw-normal text-white text-center m-5">
-                Manage your account
+                @this.ViewData["Title"]
             </h1>
         </div>
     </div>

@@ -21,11 +21,6 @@ public class Project
     public string Title { get; set; }
 
     /// <summary>
-    /// Gets or sets the things I learned from the project.
-    /// </summary>
-    public IEnumerable<string> ThingsLearned { get; set; }
-
-    /// <summary>
     /// Gets or sets the project's description.
     /// </summary>
     public string Description { get; set; }

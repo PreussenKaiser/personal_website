@@ -4,10 +4,16 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 bg-black text-center p-5">
-            <h1 class="display-4 fw-normal text-white m-5">
-                Manage Documentation
+        <div class="col-12 header bg-black p-5">
+            <h1 class="display-4 fw-normal text-white text-center m-5">
+                @this.ViewData["Title"]
             </h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center p-3">
             <a class="btn btn-outline-light btn-lg" asp-area=""
                asp-controller="Documentation" asp-action="Write">
 
@@ -15,7 +21,4 @@
            </a>
         </div>
     </div>
-</div>
-<div class="container">
-
 </div>
