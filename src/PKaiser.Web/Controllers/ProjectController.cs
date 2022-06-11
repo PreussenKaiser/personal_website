@@ -1,6 +1,7 @@
 ﻿using PKaiser.Core.Services;
 
 using Microsoft.AspNetCore.Mvc;
+using PKaiser.Core.Models;
 
 namespace PKaiser.Web.Controllers;
 
@@ -44,4 +45,20 @@ public class ProjectController : Controller
     /// <returns>The view for adding projects.</returns>
     public IActionResult Add()
         => this.View();
+
+    /// <summary>
+    /// Adds the posted project then displays the add project view.
+    /// </summary>
+    /// <param name="project">The project to add.</param>
+    /// <returns>The view for adding projects.</returns>
+    [HttpPost]
+    public async Task<IActionResult> Add(Project project)
+    {
+        if (this.ModelState.IsValid)
+        {
+            await this.projectService.AddProjectAsync(project);
+        }
+
+        return this.View(project);
+    }
 }

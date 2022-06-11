@@ -1,8 +1,9 @@
-﻿@{
+﻿@model IEnumerable<Project>
+@{
     this.ViewData["Title"] = "Home Page";
 }
 
-<div class="masthead bg-jupiter flex-center">
+<div class="masthead bg-neptune flex-center">
     <div class="text-white text-center">
         <h1 class="display-1 fw-normal">
             Karl Lukan
@@ -12,7 +13,7 @@
         </h2>
     </div>
 </div>
-<div class="full-page-section bg-dark flex-center">
+<div class="full-page-section flex-center">
     <div class="container">
         <div class="row">
             <div class="col-12 p-4">
@@ -22,7 +23,7 @@
             </div>
         </div>
         <div class="row text-white">
-            <div class="col-sm-6">
+            <div class="col-sm-6 d-flex align-items-center">
                 <p class="fs-5">
                     My name is Karl Lukan and I'm majoring in the IT Software Developer program at Mid-State Technical College.
                     I'm primarily into application development, but I just love programming in general.
@@ -30,25 +31,33 @@
                 </p>
             </div>
             <div class="col-sm-6 flex-center">
-                <img class="w-50 rounded" src="~/Resources/Images/me.jpg" />
+                <img class="w-50 border border-primary border-5 rounded-circle" src="~/Resources/Images/me.jpg" />
             </div>
         </div>
     </div>
 </div>
-<div class="full-page-section bg-dark flex-center">
+<div class="full-page-section flex-center">
     <div class="container">
         <div class="row">
             <div class="col-12 p-4">
                 <h3 class="display-6 fw-normal text-white text-center">
-                    Highlighted Projects
+                    Featured Projects
                 </h3>
             </div>
         </div>
         <div class="row">
+            @foreach (Project project in this.Model)
+            {
+                <div class="col-sm-6">
+                    <component type="typeof(ProjectComponent)"
+                               param-Project="@project"
+                               render-mode="Static"/>
+                </div>
+            }
         </div>
     </div>
 </div>
-<div class="full-page-section bg-dark flex-center">
+<div class="full-page-section flex-center">
     <div class="container">
         <div class="row">
             <div class="col-12 p-4">
@@ -58,7 +67,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-8">
                 <p class="fs-5 text-white">
                     I'm a natural team player and a life-long learner.
                     Nothing beats the joy of solving problems while creating applications for me.
@@ -69,7 +78,7 @@
                     With just one language I can work on a mobile app, then switch to making games without changing languages.
                 </p>
             </div>
-            <div class="col-sm-6 text-white">
+            <div class="col-sm-4 text-white">
                 <h4 class="h3 subheader">
                     Comfortable with<br>
                     <span class="h6 text-muted">(in no particular order)</span>

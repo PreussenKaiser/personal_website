@@ -5,6 +5,9 @@
 .full-page-section {
   min-height: 100vh;
 }
+.full-page-section:nth-of-type(odd) {
+  background-color: #343a40;
+}
 .header {
   border-radius: 0 0 32px 32px;
 }
@@ -14,8 +17,8 @@
 .bg-black {
   background-color: black;
 }
-.bg-jupiter {
-  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../Resources/Images/jupiter.jpg');
+.bg-neptune {
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../Resources/Images/neptune.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }

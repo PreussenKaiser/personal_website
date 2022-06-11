@@ -20,6 +20,7 @@ builder.Services.AddScoped<IProjectService, ProjectService>()
                 .AddScoped<IBlogService, BlogService>();
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddServerSideBlazor();
 
 WebApplication app = builder.Build();
 
@@ -48,6 +49,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorPages();
-app.UseAuthentication();;
+app.MapBlazorHub();
 
 app.Run();

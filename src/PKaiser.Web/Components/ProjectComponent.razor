@@ -1,0 +1,25 @@
+﻿@using PKaiser.Core.Models
+
+<div class="card bg-black text-white">
+    <div class="card-body">
+        <h3 class="card-title">
+            @this.Project.Title
+        </h3>
+        <div class="card-text">
+            @this.Project.Description
+        </div>
+        <a class="card-link" href="@this.Project.Url"
+           target="_blank">
+            View Project
+        </a>
+    </div>
+</div>
+
+@code
+{
+    /// <summary>
+    /// Gets or initializes the component's project.
+    /// </summary>
+    [Parameter]
+    public Project Project { get; init; }
+}

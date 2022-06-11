@@ -2,6 +2,7 @@
 
 using PKaiser.Core.Models;
 using PKaiser.Core.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace PKaiser.Infrastructure.Services;
 
@@ -27,9 +28,10 @@ public class ProjectService : IProjectService
     /// </summary>
     /// <param name="project">The project to create.</param>
     /// <returns>Whether the task was completed or not.</returns>
-    public Task AddProjectAsync(Project project)
+    public async Task AddProjectAsync(Project project)
     {
-        throw new NotImplementedException();
+        await this.database.Projects.AddAsync(project);
+        await this.database.SaveChangesAsync();
     }
 
     /// <summary>
@@ -40,6 +42,18 @@ public class ProjectService : IProjectService
     public Task<List<Project>> GetAllProjectsAsync()
     {
         throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Gets all featured projects from the database asynchronously.
+    /// </summary>
+    /// <returns>An enumerable of featured projects.</returns>
+    public async Task<IEnumerable<Project>> GetAllFeaturedProjectsAsync()
+    {
+        List<Project> projects = await this.database.Projects.ToListAsync();
+        IEnumerable<Project> featuredProjects = projects.Where(p => p.IsFeatured);
+
+        return featuredProjects;
     }
 
     /// <summary>

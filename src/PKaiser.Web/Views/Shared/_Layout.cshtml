@@ -75,8 +75,19 @@
         </div>
     </footer>
 
+    <!-- Vendor JS -->
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/tinymce/tinymce.min.js"></script>
+
+    <!-- Custom JS -->
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await this.RenderSectionAsync("Scripts", required: false)
+
+    <!-- Initializes TinyMCE -->
+    <script type="text/javascript">
+        tinymce.init({
+          selector: 'textarea'
+        });
+    </script>
 </body>
 </html>

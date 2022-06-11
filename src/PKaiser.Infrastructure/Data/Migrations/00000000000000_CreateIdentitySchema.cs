@@ -74,7 +74,7 @@ public partial class CreateIdentitySchema : Migration
                     principalColumn: "Id",
                     onDelete: ReferentialAction.Cascade);
             });
-
+        
         migrationBuilder.CreateTable(
             name: "AspNetUserClaims",
             columns: table => new

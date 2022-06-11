@@ -1,25 +1,15 @@
 ﻿@{
     this.ViewData["Title"] = "Account Settings";
 
-    if (this.ViewData.TryGetValue("ParentLayout", out var parentLayout))
-    {
-        this.Layout = (string)parentLayout;
-    }
-    else
-    {
-        this.Layout = "/Areas/Identity/Pages/_Layout.cshtml";
-    }
+    this.Layout = this.ViewData.TryGetValue("ParentLayout", out var parentLayout)
+        ? (string)parentLayout
+        : "/Areas/Identity/Pages/_Layout.cshtml";
 }
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 header bg-black p-5">
-            <h1 class="display-4 fw-normal text-white text-center m-5">
-                @this.ViewData["Title"]
-            </h1>
-        </div>
-    </div>
-</div>
+<component type="typeof(HeaderComponent)"
+           param-Title="@this.ViewData["Title"]"
+           render-mode="Static"/>
+
 <div class="container">
     <div class="row p-4">
         <div class="col-md-3">
