@@ -2,17 +2,16 @@
 
 <div class="card bg-black text-white">
     <div class="card-body">
-        <h3 class="card-title">
+        <h3 class="h2 card-title">
             @this.Project.Title
         </h3>
         <div class="card-text">
-            @this.Project.Description
+            @((MarkupString)this.Project.Description)
         </div>
-        <a class="card-link" href="@this.Project.Url"
-           target="_blank">
-            View Project
-        </a>
     </div>
+    <a class="btn btn-outline-info" href="Project/ViewProject?projectId=@this.Project.Id">
+        View
+    </a>
 </div>
 
 @code

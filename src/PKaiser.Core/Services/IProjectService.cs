@@ -17,8 +17,8 @@ public interface IProjectService
     /// <summary>
     /// Gets all project from the service asynchronously.
     /// </summary>
-    /// <returns>A list of projects.</returns>
-    public Task<List<Project>> GetAllProjectsAsync();
+    /// <returns>An enumerable of projects.</returns>
+    public Task<IEnumerable<Project>> GetAllProjectsAsync();
 
     /// <summary>
     /// Gets all featured projects from the service asynchronously.
@@ -34,11 +34,11 @@ public interface IProjectService
     public Task<Project> GetProjectAsync(int projectId);
 
     /// <summary>
-    /// Highlights a given podcast in the service asynchronously.
+    /// Updates a project in the service asynchronously.
     /// </summary>
-    /// <param name="projectId">The unique identifier of the podcast to highlight.</param>
+    /// <param name="project">The model containing which project to update (using the identifier) as well as it's values.</param>
     /// <returns>Whether the task was completed or not.</returns>
-    public Task HighlightProjectAsync(int projectId);
+    public Task EditProjectAsync(Project project);
 
     /// <summary>
     /// Deletes a project from the service asynchronously.
@@ -46,4 +46,11 @@ public interface IProjectService
     /// <param name="project">The project to delete.</param>
     /// <returns>Whether the task was completed or not.</returns>
     public Task DeleteProjectAsync(Project project);
+
+    /// <summary>
+    /// Highlights a given podcast in the service asynchronously.
+    /// </summary>
+    /// <param name="projectId">The unique identifier of the podcast to highlight.</param>
+    /// <returns>Whether the task was completed or not.</returns>
+    public Task FeatureProjectAsync(int projectId);
 }

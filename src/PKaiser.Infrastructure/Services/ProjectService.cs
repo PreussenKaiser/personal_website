@@ -35,13 +35,14 @@ public class ProjectService : IProjectService
     }
 
     /// <summary>
-    /// Gets all projects rom the local database.
+    /// Gets all projects rom the local database asynchronously.
     /// </summary>
-    /// <returns>A list of projects.</returns>
-    /// <exception cref="NotImplementedException"></exception>
-    public Task<List<Project>> GetAllProjectsAsync()
+    /// <returns>An enumerable of projects.</returns>
+    public async Task<IEnumerable<Project>> GetAllProjectsAsync()
     {
-        throw new NotImplementedException();
+        IEnumerable<Project> projects = await this.database.Projects.ToListAsync();
+
+        return projects;
     }
 
     /// <summary>
@@ -51,7 +52,7 @@ public class ProjectService : IProjectService
     public async Task<IEnumerable<Project>> GetAllFeaturedProjectsAsync()
     {
         List<Project> projects = await this.database.Projects.ToListAsync();
-        IEnumerable<Project> featuredProjects = projects.Where(p => p.IsFeatured);
+        IEnumerable<Project> featuredProjects = this.database.Projects.Where(p => p.IsFeatured);
 
         return featuredProjects;
     }
@@ -61,9 +62,22 @@ public class ProjectService : IProjectService
     /// </summary>
     /// <param name="projectId">The identifier of the project o get.</param>
     /// <returns>The first project in the database that matches the identifier.</returns>
-    public Task<Project> GetProjectAsync(int projectId)
+    public async Task<Project> GetProjectAsync(int projectId)
     {
-        throw new NotImplementedException();
+        Project project = await this.database.Projects.FindAsync(projectId);
+
+        return project;
+    }
+
+    /// <summary>
+    /// Updates a project in the database asynchronously.
+    /// </summary>
+    /// <param name="project">The model containing which project to update (using the identifier) as well as it's values.</param>
+    /// <returns>Whether the task was completed or not.</returns>
+    public async Task EditProjectAsync(Project project)
+    {
+        this.database.Projects.Update(project);
+        await this.database.SaveChangesAsync();
     }
 
     /// <summary>
@@ -81,7 +95,7 @@ public class ProjectService : IProjectService
     /// </summary>
     /// <param name="projectId">The identifier of the project to hightlight.</param>
     /// <returns>Whether the task was completed or not.</returns>
-    public Task HighlightProjectAsync(int projectId)
+    public Task FeatureProjectAsync(int projectId)
     {
         throw new NotImplementedException();
     }
