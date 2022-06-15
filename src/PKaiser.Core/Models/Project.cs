@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 
 namespace PKaiser.Core.Models;
 
@@ -36,7 +35,6 @@ public class Project
     /// Gets or sets the project's description.
     /// </summary>
     [Required]
-    [AllowHtml]
     [DataType(DataType.Html)]
     public string Description { get; set; }
 }

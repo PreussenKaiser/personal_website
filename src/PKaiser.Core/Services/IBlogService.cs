@@ -21,6 +21,13 @@ public interface IBlogService
     public Task<List<Blog>> GetAllBlogsAsync();
 
     /// <summary>
+    /// Gets a blog from the service.
+    /// </summary>
+    /// <param name="id">The identifier of the blog to get.</param>
+    /// <returns>The found blog.</returns>
+    public Task<Blog> GetBlogAsync(int id);
+
+    /// <summary>
     /// Deletes a blog from the service asynchronously.
     /// </summary>
     /// <param name="id">The unique identifier of the blog to remove.</param>

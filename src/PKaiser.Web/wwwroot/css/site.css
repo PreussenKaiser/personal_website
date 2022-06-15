@@ -6,7 +6,7 @@
   min-height: 100vh;
 }
 .full-page-section:nth-of-type(odd) {
-  background-color: #343a40;
+  background-color: #1f1c22;
 }
 .header {
   border-radius: 0 0 32px 32px;

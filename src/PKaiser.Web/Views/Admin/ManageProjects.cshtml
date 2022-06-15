@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Project>
+@{
     this.ViewData["Title"] = "Manage Projects";
 }
 
@@ -9,11 +10,60 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center p-3">
-            <a class="btn btn-outline-light btn-lg" asp-area=""
-               asp-controller="Project" asp-action="Add">
+            <a class="btn btn-outline-light btn-lg" asp-controller="Project"
+               asp-action="AddProject">
 
                + Add Project
            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table text-white">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Id
+                        </th>
+                        <th scope="col">
+                            Title
+                        </th>
+                        <th scope="col">
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Project project in this.Model)
+                    {
+                        <tr>
+                            <th scope="row">
+                                @project.Id
+                            </th>
+                            <td>
+                                @project.Title
+                            </td>
+                            <td>
+                                <a asp-controller="Project" asp-action="ViewProject"
+                                   asp-route-id="@project.Id">
+                                    View
+                                </a>
+                                |
+                                <a asp-controller="Project" asp-action="EditProject"
+                                   asp-route-id="@project.Id">
+                                    Edit
+                                </a>
+                                |
+                                <a asp-controller="Project" asp-action="DeleteProject"
+                                   asp-route-id="@project.Id">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

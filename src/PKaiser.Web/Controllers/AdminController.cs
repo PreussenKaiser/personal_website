@@ -2,6 +2,7 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PKaiser.Core.Models;
 
 namespace PKaiser.Web.Controllers;
 
@@ -45,15 +46,23 @@ public class AdminController : Controller
     /// Displays the ManageBlogs view.
     /// </summary>
     /// <returns>The view for managing blogs.</returns>
-    public IActionResult ManageBlogs()
-        => this.View();
+    public async Task<IActionResult> ManageBlogs()
+    {
+        IEnumerable<Blog> blogs = await this.blogService.GetAllBlogsAsync();
+
+        return this.View(blogs);
+    }
 
     /// <summary>
     /// Displays the ManageProjects view.
     /// </summary>
-    /// <returns>The view fpr managing projects.</returns>
-    public IActionResult ManageProjects()
-        => this.View();
+    /// <returns>The view for managing projects.</returns>
+    public async Task<IActionResult> ManageProjects()
+    {
+        IEnumerable<Project> projects = await this.projectService.GetAllProjectsAsync();
+
+        return this.View(projects);
+    }
 
     /// <summary>
     /// Displays the ManageDocumentation view.

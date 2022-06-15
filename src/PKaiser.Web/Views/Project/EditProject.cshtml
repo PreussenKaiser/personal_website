@@ -1,7 +1,6 @@
-﻿@model PKaiser.Core.Models.Project
-
+﻿@model Project
 @{
-    this.ViewData["Title"] = "Add Project";
+    this.ViewData["Title"] = this.Model.Title;
 }
 
 <component type="typeof(HeaderComponent)"
@@ -11,34 +10,38 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-sm-6 mx-auto">
-            <form method="post" asp-action="Add">
-
+            <form method="post" asp-action="EditProject">
                 <div class="form-floating mb-3">
                     <input class="form-control text-black" type="text"
-                           asp-for="Title"/>
+                           asp-for="Title" value="@this.Model.Title"/>
 
                     <label class="form-label" asp-for="Title">
                         Title
                     </label>
                     <span class="text-info" asp-validation-for="Title"></span>
                 </div>
+
                 <div class="form-floating mb-3">
                     <input class="form-control text-black" type="text"
-                           asp-for="Url"/>
+                           asp-for="Url" value="@this.Model.Url"/>
 
                     <label class="form-label" asp-for="Url">
                         Url
                     </label>
                     <span class="text-info" asp-validation-for="Title"></span>
                 </div>
+
                 <div class="form-floating mb-3">
-                    <textarea asp-for="Description"></textarea>
+                    <textarea asp-for="Description">
+                        @this.Model.Description
+                    </textarea>
 
                     <label class="form-label" asp-for="Description">
                         Description
                     </label>
                     <span class="text-info" asp-validation-for="Title"></span>
                 </div>
+
                 <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox"
                            asp-for="IsFeatured">
@@ -47,6 +50,7 @@
                         Feature project?
                     </label>
                 </div>
+
                 <div class="row mb-3">
                     <div class="col-6 d-grid">
                         <button class="btn btn-danger btn-lg" type="reset">

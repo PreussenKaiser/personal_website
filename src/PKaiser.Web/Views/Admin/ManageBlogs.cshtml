@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Blog>
+@{
     this.ViewData["Title"] = "Manage Blogs";
 }
 
@@ -14,6 +15,52 @@
 
                 + Post Blog
             </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Id
+                        </th>
+                        <th scope="col">
+                            Title
+                        </th>
+                        <th scope="col">
+                            Actions
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Blog blog in this.Model)
+                    {
+                        <tr>
+                            <th scope="row">
+                                @blog.Id
+                            </th>
+                            <td>
+                                @blog.Title - @blog.DatePosted.ToString("MMMM-dd-yyyy")
+                            </td>
+                            <td>
+                                <a asp-controller="Blog" asp-action="ViewProject">
+                                    View
+                                </a>
+                                |
+                                <a asp-controller="Blog" asp-action="">
+                                    Edit
+                                </a>
+                                |
+                                <a>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

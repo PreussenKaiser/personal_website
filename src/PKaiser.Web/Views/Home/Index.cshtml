@@ -3,17 +3,28 @@
     this.ViewData["Title"] = "Home Page";
 }
 
-<div class="masthead bg-neptune flex-center">
-    <div class="text-white text-center">
-        <h1 class="display-1 fw-normal">
-            Karl Lukan
-        </h1>
-        <h2 class="display-5">
-            Software Developer
-        </h2>
+<div id="masthead" class="masthead bg-neptune flex-center">
+    <div class="row">
+        <div class="col-12">
+            <div class="text-white text-center">
+                <h1 class="display-1 fw-normal">
+                    Karl Lukan
+                </h1>
+                <h2 class="display-5">
+                    Software Developer
+                </h2>
+            </div>
+        </div>
+        <div class="col-sm-3 mx-auto mt-3">
+            <div class="text-center">
+                <a class="btn btn-primary" href="#about_me">
+                    About Me
+                </a>
+            </div>
+        </div>
     </div>
 </div>
-<div class="full-page-section flex-center">
+<div id="about_me" class="full-page-section flex-center">
     <div class="container">
         <div class="row">
             <div class="col-12 p-4">
@@ -25,18 +36,60 @@
         <div class="row text-white">
             <div class="col-sm-6 d-flex align-items-center">
                 <p class="fs-5">
-                    My name is Karl Lukan and I'm majoring in the IT Software Developer program at Mid-State Technical College.
-                    I'm primarily into application development, but I just love programming in general.
-                    Consequently, I'm a pretty huge nerd - anything related to tech/science makes my synapses fire.
+                    <b>I may not be great at explaining myself, so bear with me.</b>
+                    <br/>
+                    Currently, I'm a student in the IT Software Developer program at Mid-State Technical College.
+                    Learning is something we all have to do, some even like it.
+                    What interests me is sharing my growth with others, be it in a professional environment, school, or just to random people I meet.
                 </p>
             </div>
             <div class="col-sm-6 flex-center">
                 <img class="w-50 border border-primary border-5 rounded-circle" src="~/Resources/Images/me.jpg" />
             </div>
         </div>
+        <div class="row mt-5">
+            <div class="col-sm-8 fs-5 text-white">
+                <p>
+                    Now for what I believe I'm good at.
+                    Anybody could have written the previous paragraph, but I can back it up with my time as a tutor for Mid-State Technical College.
+                    There's obviously other examples of me collaborating with others, but that one serves as offical proof.
+                </p>
+                <p>
+                    I also love creating things, especially software.
+                    This may sound nerdy, but I really like architecting something that's scalable and maintainable.
+                    This can be detrimental however, as I typically choose the 'built very well but takes awhile to finish' approach vs. 'it is usable and met the deadline'.
+                </p>
+            </div>
+            <div class="col-sm-4 text-white">
+                <h4 class="h3 subheader">
+                    Comfortable with<br>
+                    <span class="h6 text-muted">
+                        (in no particular order)
+                    </span>
+                </h4>
+
+                <ul>
+                    <li>C#</li>
+                    <li>Java</li>
+                    <li>HTML/CSS/JS</li>
+                    <li>Bootstrap, Less.js, Typescript</li>
+                    <li>Xamarin/.NET MAUI</li>
+                    <li>OOP</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-3 mx-auto">
+                <div class="text-center">
+                    <a class="btn btn-primary" href="#projects">
+                        Projects
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-<div class="full-page-section flex-center">
+<div id="projects" class="full-page-section flex-center">
     <div class="container">
         <div class="row">
             <div class="col-12 p-4">
@@ -55,43 +108,13 @@
                 </div>
             }
         </div>
-    </div>
-</div>
-<div class="full-page-section flex-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 p-4">
-                <h3 class="display-6 fw-normal text-white text-center">
-                    Skills
-                </h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-8">
-                <p class="fs-5 text-white">
-                    I'm a natural team player and a life-long learner.
-                    Nothing beats the joy of solving problems while creating applications for me.
-                    As a result I love coding, even during school breaks I drown myself in projects.
-                    I just love creating things in general, be it in a game or an IDE.
-
-                    I really enjoy C# as a language and .NET in general due to how easy it is to create cross platform applications.
-                    With just one language I can work on a mobile app, then switch to making games without changing languages.
-                </p>
-            </div>
-            <div class="col-sm-4 text-white">
-                <h4 class="h3 subheader">
-                    Comfortable with<br>
-                    <span class="h6 text-muted">(in no particular order)</span>
-                </h4>
-
-                <ul>
-                    <li>C#</li>
-                    <li>Java</li>
-                    <li>HTML/CSS/JS</li>
-                    <li>Bootstrap, Less.js, Typescript</li>
-                    <li>Xamarin</li>
-                    <li>OOP</li>
-                </ul>
+        <div class="row mt-5">
+            <div class="col-sm-3 mx-auto">
+                <div class="text-center">
+                    <a class="btn btn-primary" href="#masthead">
+                        Back to top
+                    </a>
+                </div>
             </div>
         </div>
     </div>

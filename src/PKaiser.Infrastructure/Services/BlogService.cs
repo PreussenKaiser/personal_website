@@ -40,6 +40,19 @@ public class BlogService : IBlogService
         => await Task.Run(() => this.database.Blogs.ToList());
 
     /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
+    public async Task<Blog> GetBlogAsync(int id)
+    {
+        Blog blog = await this.database.Blogs.FindAsync(id);
+
+        return blog;
+    }
+
+    /// <summary>
     /// Deletes a blog from the local database.
     /// </summary>
     /// <param name="id">The identifier of the blog to delete.</param>
@@ -48,4 +61,5 @@ public class BlogService : IBlogService
     {
         throw new NotImplementedException();
     }
+
 }

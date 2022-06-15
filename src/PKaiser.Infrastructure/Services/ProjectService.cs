@@ -85,9 +85,13 @@ public class ProjectService : IProjectService
     /// </summary>
     /// <param name="project">The project to delete.</param>
     /// <returns>Whether the task was completed or not.</returns>
-    public Task DeleteProjectAsync(Project project)
+    public async Task DeleteProjectAsync(Project project)
     {
-        throw new NotImplementedException();
+        if (project is null)
+            return;
+
+        this.database.Projects.Remove(project);
+        await this.database.SaveChangesAsync();
     }
 
     /// <summary>

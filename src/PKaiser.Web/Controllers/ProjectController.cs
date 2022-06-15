@@ -1,8 +1,7 @@
 ﻿using PKaiser.Core.Services;
+using PKaiser.Core.Models;
 
 using Microsoft.AspNetCore.Mvc;
-using PKaiser.Core.Models;
-using System.Net;
 using Microsoft.AspNetCore.Authorization;
 
 namespace PKaiser.Web.Controllers;
@@ -50,7 +49,7 @@ public class ProjectController : Controller
     /// </summary>
     /// <returns>The view for adding projects.</returns>
     [Authorize]
-    public IActionResult Add()
+    public IActionResult AddProject()
         => this.View();
 
     /// <summary>
@@ -60,11 +59,13 @@ public class ProjectController : Controller
     /// <returns>The view for adding projects.</returns>
     [HttpPost]
     [Authorize]
-    public async Task<IActionResult> Add(Project project)
+    public async Task<IActionResult> AddProject(Project project)
     {
         if (this.ModelState.IsValid)
         {
             await this.projectService.AddProjectAsync(project);
+
+            return this.RedirectToAction("ManageProjects", "Admin");
         }
 
         return this.View(project);
@@ -73,11 +74,11 @@ public class ProjectController : Controller
     /// <summary>
     /// Displays the ViewProject view.
     /// </summary>
-    /// <param name="projectId">The identifier of the project to display.</param>
+    /// <param name="id">The identifier of the project to display.</param>
     /// <returns>The view to display projects with.</returns>
-    public async Task<IActionResult> ViewProject(int projectId)
+    public async Task<IActionResult> ViewProject(int id)
     {
-        Project project = await this.projectService.GetProjectAsync(projectId)
+        Project project = await this.projectService.GetProjectAsync(id)
             ?? new Project
             {
                 Id = 0,
@@ -88,5 +89,49 @@ public class ProjectController : Controller
             };
 
         return this.View(project);
+    }
+
+    /// <summary>
+    /// Displays the EditProject view.
+    /// </summary>
+    /// <param name="id">The identifier of the project to edit.</param>
+    /// <returns>The view which edits a project.</returns>
+    [Authorize]
+    public async Task<IActionResult> EditProject(int id)
+    {
+        Project project = await this.projectService.GetProjectAsync(id);
+
+        return this.View(project);
+    }
+
+    /// <summary>
+    /// Validates the EditProject form.
+    /// </summary>
+    /// <param name="project">The porject values to update.</param>
+    /// <returns>The view which edits a project.</returns>
+    [HttpPost]
+    public async Task<IActionResult> EditProject(Project project)
+    {
+        if (this.ModelState.IsValid)
+        {
+            await this.projectService.EditProjectAsync(project);
+
+            return this.RedirectToAction("ManageProjects", "Admin");
+        }
+
+        return this.View(project);
+    }
+
+    /// <summary>
+    /// Deletes a project.
+    /// </summary>
+    /// <param name="id">The identifier of the project to delete.</param>
+    /// <returns>Whether the task was completed or not.</returns>
+    public async Task<IActionResult> DeleteProject(int id)
+    {
+        Project project = await this.projectService.GetProjectAsync(id);
+        await this.projectService.DeleteProjectAsync(project);
+
+        return this.RedirectToAction("ManageProjects", "Admin");
     }
 }

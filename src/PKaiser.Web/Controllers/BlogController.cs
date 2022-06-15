@@ -1,4 +1,5 @@
-﻿using PKaiser.Core.Services;
+﻿using PKaiser.Core.Models;
+using PKaiser.Core.Services;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,4 +38,16 @@ public class BlogController : Controller
     /// <returns>The blogs index view.</returns>
     public IActionResult Index()
         => this.View();
+
+    /// <summary>
+    /// Displays the View view.
+    /// </summary>
+    /// <param name="id">The blog to view.</param>
+    /// <returns>The view which displays a blog.</returns>
+    public async Task<IActionResult> ViewBlog(int id)
+    {
+        Blog blog = await this.blogService.GetBlogAsync(id);
+
+        return this.View(blog);
+    }
 }

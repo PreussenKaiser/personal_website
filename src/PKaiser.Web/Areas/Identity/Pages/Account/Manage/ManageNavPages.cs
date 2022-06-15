@@ -21,6 +21,12 @@ public static class ManageNavPages
         => "Index";
 
     /// <summary>
+    /// Gets the url for the RegisterAdmin view.
+    /// </summary>
+    public static string RegisterAdmin
+        => "Register";
+
+    /// <summary>
     /// This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
     /// directly from your code. This API may change or be removed in future releases.
     /// </summary>
@@ -46,6 +52,14 @@ public static class ManageNavPages
     /// </summary>
     public static string IndexNavClass(ViewContext viewContext)
         => PageNavClass(viewContext, Index);
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="viewContext"></param>
+    /// <returns></returns>
+    public static string RegisterAdminClass(ViewContext viewContext)
+        => PageNavClass(viewContext, RegisterAdmin);
 
     /// <summary>
     /// This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
