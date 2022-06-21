@@ -1,7 +1,7 @@
-namespace PKaiser.Core.Models;
+namespace PKaiser.Web.ViewModels;
 
 /// <summary>
-/// The class that represents an error view.
+/// Represents the model for the error view.
 /// </summary>
 public class ErrorViewModel
 {

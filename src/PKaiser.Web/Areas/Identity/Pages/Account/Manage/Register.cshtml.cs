@@ -66,7 +66,7 @@ public class RegisterModel : PageModel
     {
         this.userManager = userManager;
         this.userStore = userStore;
-        this.emailStore = GetEmailStore();
+        this.emailStore = this.GetEmailStore();
         this.signInManager = signInManager;
         this.logger = logger;
         this.emailSender = emailSender;

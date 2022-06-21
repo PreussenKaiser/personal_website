@@ -1,4 +1,6 @@
-﻿using PKaiser.Core.Models;
+﻿using PKaiser.Web.ViewModels;
+
+using PKaiser.Core.Models;
 using PKaiser.Core.Services;
 
 using Microsoft.AspNetCore.Mvc;
@@ -17,21 +19,12 @@ public class HomeController : Controller
     private readonly IProjectService projectService;
 
     /// <summary>
-    /// The logger for home views.
-    /// </summary>
-    private readonly ILogger<HomeController> logger;
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="HomeController"/> class.
     /// </summary>
     /// <param name="projectService">The service to get projects with.</param>
     /// <param name="logger">The logger for home views.</param>
-    public HomeController(IProjectService projectService,
-                          ILogger<HomeController> logger)
-    {
-        this.projectService = projectService;
-        this.logger = logger;
-    }
+    public HomeController(IProjectService projectService)
+        => this.projectService = projectService;
 
     /// <summary>
     /// Renders the index view.

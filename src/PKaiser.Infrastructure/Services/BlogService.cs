@@ -1,6 +1,7 @@
-﻿using PKaiser.Core.Models;
+﻿using PKaiser.Infrastructure.Data;
+
+using PKaiser.Core.Models;
 using PKaiser.Core.Services;
-using PKaiser.Infrastructure.Data;
 
 namespace PKaiser.Infrastructure.Services;
 
@@ -28,7 +29,9 @@ public class BlogService : IBlogService
     /// <returns>Whether the task was completed or not.</returns>
     public async Task PostBlogAsync(Blog blog)
     {
-        this.database.Blogs.Add(blog);
+        blog.DatePosted = DateTime.Now;
+
+        await this.database.Blogs.AddAsync(blog);
         await this.database.SaveChangesAsync();
     }
 
@@ -40,11 +43,10 @@ public class BlogService : IBlogService
         => await Task.Run(() => this.database.Blogs.ToList());
 
     /// <summary>
-    /// 
+    /// Gets a blog from the service.
     /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
+    /// <param name="id">The identifier of the blog to get.</param>
+    /// <returns>The found blog.</returns>
     public async Task<Blog> GetBlogAsync(int id)
     {
         Blog blog = await this.database.Blogs.FindAsync(id);
@@ -53,13 +55,27 @@ public class BlogService : IBlogService
     }
 
     /// <summary>
-    /// Deletes a blog from the local database.
+    /// Updates a blog in the database.
     /// </summary>
-    /// <param name="id">The identifier of the blog to delete.</param>
+    /// <param name="blog">The blog to update.</param>
     /// <returns>Whether the task was completed or not.</returns>
-    public Task RemoveBlogAsync(int id)
+    public async Task EditBlogAsync(Blog blog)
     {
-        throw new NotImplementedException();
+        if (blog is null)
+            return;
+
+        this.database.Blogs.Update(blog);
+        await this.database.SaveChangesAsync();
     }
 
+    /// <summary>
+    /// Deletes a blog from the local database.
+    /// </summary>
+    /// <param name="blog">The blog to remove.</param>
+    /// <returns>Whether the task was completed or not.</returns>
+    public async Task RemoveBlogAsync(Blog blog)
+    {
+        this.database.Blogs.Remove(blog);
+        await this.database.SaveChangesAsync();
+    }
 }

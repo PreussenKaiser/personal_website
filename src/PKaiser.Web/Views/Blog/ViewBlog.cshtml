@@ -1,4 +1,20 @@
 ﻿@model Blog
 @{
-    this.ViewData["Data"] = this.Model.Title;
+    this.ViewData["Title"] = this.Model.Title;
 }
+
+<component type="typeof(HeaderComponent)"
+           param-Title="@this.ViewData["Title"]"
+           render-mode="Static"/>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 text-white">
+            <p>
+                Posted on @this.Model.DatePosted.ToString("MMMM dd, yyyy")
+            </p>
+
+            @this.Html.Raw(this.Model.Content)
+        </div>
+    </div>
+</div>

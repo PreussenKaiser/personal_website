@@ -7,14 +7,14 @@
            param-Title="@this.ViewData["Title"]"
            render-mode="Static"/>
 
-<div class="container mt-5">
+<div class="container my-5">
     <div class="row">
         @foreach (Project project in this.Model)
         {
             <div class="col-sm-4">
                 <component type="typeof(ProjectComponent)"
-                            param-Project="@project"
-                            render-mode="Static"/>
+                           param-Project="@project"
+                           render-mode="Static"/>
             </div>
         }
     </div>

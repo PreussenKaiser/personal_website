@@ -3,7 +3,7 @@
 namespace PKaiser.Core.Services;
 
 /// <summary>
-/// The interface which implements project query methods.
+/// Implements project query methods.
 /// </summary>
 public interface IProjectService
 {

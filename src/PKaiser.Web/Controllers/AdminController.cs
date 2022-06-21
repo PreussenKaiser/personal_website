@@ -23,23 +23,15 @@ public class AdminController : Controller
     private readonly IBlogService blogService;
 
     /// <summary>
-    /// Logs administration processes.
-    /// </summary>
-    private readonly ILogger<AdminController> logger;
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="AdminController"/> class.
     /// </summary>
     /// <param name="projectService">The service to query projects with.</param>
     /// <param name="blogService">The service to query blogs with.</param>
-    /// <param name="logger">Logs administration processes.</param>
     public AdminController(IProjectService projectService,
-                           IBlogService blogService,
-                           ILogger<AdminController> logger)
+                           IBlogService blogService)
     {
         this.projectService = projectService;
         this.blogService = blogService;
-        this.logger = logger;
     }
 
     /// <summary>

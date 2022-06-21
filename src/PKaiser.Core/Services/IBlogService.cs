@@ -3,7 +3,7 @@
 namespace PKaiser.Core.Services;
 
 /// <summary>
-/// The interface that implements blog query methods.
+/// Implements blog query methods.
 /// </summary>
 public interface IBlogService
 {
@@ -28,9 +28,16 @@ public interface IBlogService
     public Task<Blog> GetBlogAsync(int id);
 
     /// <summary>
+    /// Edits a blog in the service.
+    /// </summary>
+    /// <param name="blog">The blog to edit.</param>
+    /// <returns>Whether the task was completed or not.</returns>
+    public Task EditBlogAsync(Blog blog);
+
+    /// <summary>
     /// Deletes a blog from the service asynchronously.
     /// </summary>
-    /// <param name="id">The unique identifier of the blog to remove.</param>
+    /// <param name="blog">The blog to remove.</param>
     /// <returns>Whether the task was completed or not.</returns>
-    public Task RemoveBlogAsync(int id);
+    public Task RemoveBlogAsync(Blog blog);
 }

@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Project>
 @{
-    this.ViewData["Title"] = "Home Page";
+    this.ViewData["Title"] = "Home";
 }
 
 <div id="masthead" class="masthead bg-neptune flex-center">
@@ -98,13 +98,13 @@
                 </h3>
             </div>
         </div>
-        <div class="row">
+        <div class="row gy-4">
             @foreach (Project project in this.Model)
             {
                 <div class="col-sm-6">
                     <component type="typeof(ProjectComponent)"
-                               param-Project="@project"
-                               render-mode="Static"/>
+                                param-Project="@project"
+                                render-mode="Static"/>
                 </div>
             }
         </div>

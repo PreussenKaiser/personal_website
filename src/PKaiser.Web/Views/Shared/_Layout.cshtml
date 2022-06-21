@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="~/PKaiser.styles.css" asp-append-version="true"/>
 </head>
 <body>
-    <header>
+    <header class="bg-black position-fixed w-100">
+        <partial name="_Navigation"/>
+        <!--
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black">
             <div class="container">
                 <a class="navbar-brand" asp-area=""
@@ -59,6 +61,7 @@
                 </div>
             </div>
         </nav>
+        -->
     </header>
 
     <main role="main">
@@ -80,7 +83,7 @@
     <script src="~/lib/tinymce/tinymce.min.js"></script>
 
     <!-- Custom JS -->
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/out/site.js" asp-append-version="true"></script>
     @await this.RenderSectionAsync("Scripts", required: false)
 
     <!-- Initializes TinyMCE -->

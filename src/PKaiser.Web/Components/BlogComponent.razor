@@ -3,13 +3,13 @@
 <div class="card bg-black text-white">
     <div class="card-body">
         <h3 class="h2 card-title">
-            @this.Project.Title
+            @this.Blog.Title
         </h3>
         <div class="card-text">
-            @this.Project.Details
+            @this.Blog.Details
         </div>
     </div>
-    <a class="btn btn-outline-info" href="Project/ViewProject?id=@this.Project.Id">
+    <a class="btn btn-outline-info" href="Blog/ViewBlog?id=@this.Blog.Id">
         View
     </a>
 </div>
@@ -17,8 +17,8 @@
 @code
 {
     /// <summary>
-    /// Gets or initializes the component's project.
+    /// Gets or initializes the blog to display.
     /// </summary>
     [Parameter]
-    public Project Project { get; init; }
+    public Blog Blog { get; init; }
 }

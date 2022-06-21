@@ -20,7 +20,15 @@
                     </label>
                     <span class="text-info" asp-validation-for="Title"></span>
                 </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control text-black" type="text"
+                            asp-for="Details"/>
 
+                    <label class="form-label" asp-for="Details">
+                        Details
+                    </label>
+                    <span class="text-info" asp-validation-for="Details"></span>
+                </div>
                 <div class="form-floating mb-3">
                     <input class="form-control text-black" type="text"
                            asp-for="Url" value="@this.Model.Url"/>
@@ -32,14 +40,14 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <textarea asp-for="Description">
-                        @this.Model.Description
+                    <textarea asp-for="Content">
+                        @this.Model.Content
                     </textarea>
 
-                    <label class="form-label" asp-for="Description">
-                        Description
+                    <label class="form-label" asp-for="Content">
+                        Content
                     </label>
-                    <span class="text-info" asp-validation-for="Title"></span>
+                    <span class="text-info" asp-validation-for="Content"></span>
                 </div>
 
                 <div class="form-check mb-3">

@@ -17,21 +17,11 @@ public class ProjectController : Controller
     private readonly IProjectService projectService;
 
     /// <summary>
-    /// Logs project view processes.
-    /// </summary>
-    private readonly ILogger<ProjectController> logger;
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="ProjectController"/> class.
     /// </summary>
     /// <param name="projectService">The service to get projects with.</param>
-    /// <param name="logger">Logs project view processes.</param>
-    public ProjectController(IProjectService projectService,
-                             ILogger<ProjectController> logger)
-    {
-        this.projectService = projectService;
-        this.logger = logger;
-    }
+    public ProjectController(IProjectService projectService)
+        => this.projectService = projectService;
 
     /// <summary>
     /// Displays the Index view.
@@ -56,7 +46,7 @@ public class ProjectController : Controller
     /// Adds the posted project then displays the add project view.
     /// </summary>
     /// <param name="project">The project to add.</param>
-    /// <returns>The view for adding projects.</returns>
+    /// <returns>If valid, redirected to ManageProjects.</returns>
     [HttpPost]
     [Authorize]
     public async Task<IActionResult> AddProject(Project project)
@@ -82,8 +72,8 @@ public class ProjectController : Controller
             ?? new Project
             {
                 Id = 0,
-                Title = "Error finding project",
-                Description = string.Empty,
+                Title = "There was a problem loading the project",
+                Content = string.Empty,
                 Url = string.Empty,
                 IsFeatured = false
             };
@@ -110,6 +100,7 @@ public class ProjectController : Controller
     /// <param name="project">The porject values to update.</param>
     /// <returns>The view which edits a project.</returns>
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> EditProject(Project project)
     {
         if (this.ModelState.IsValid)
@@ -127,9 +118,11 @@ public class ProjectController : Controller
     /// </summary>
     /// <param name="id">The identifier of the project to delete.</param>
     /// <returns>Whether the task was completed or not.</returns>
+    [Authorize]
     public async Task<IActionResult> DeleteProject(int id)
     {
         Project project = await this.projectService.GetProjectAsync(id);
+
         await this.projectService.DeleteProjectAsync(project);
 
         return this.RedirectToAction("ManageProjects", "Admin");

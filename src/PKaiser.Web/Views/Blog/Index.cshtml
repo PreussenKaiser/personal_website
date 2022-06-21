@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Blog>
+@{
     this.ViewData["Title"] = "Blogs";
 }
 
@@ -6,6 +7,15 @@
            param-Title="@this.ViewData["Title"]"
            render-mode="Static"/>
 
-<div class="container">
-
+<div class="container my-5">
+    <div class="row">
+        @foreach (Blog blog in this.Model)
+        {
+            <div class="col-sm-4">
+                <component type="typeof(BlogComponent)"
+                           param-Blog="@blog"
+                           render-mode="Static"/>
+            </div>
+        }
+    </div>
 </div>

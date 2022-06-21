@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
+    <Content Remove="wwwroot\js\src\site.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,16 +23,30 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.7.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Resources\Images\" />
+    <Folder Include="wwwroot\js\out\" />
+    <Folder Include="wwwroot\Resources\Images\Uploads\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PKaiser.Core\PKaiser.Core.csproj" />
     <ProjectReference Include="..\PKaiser.Infrastructure\PKaiser.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\js\src\site.ts" />
   </ItemGroup>
 
 </Project>

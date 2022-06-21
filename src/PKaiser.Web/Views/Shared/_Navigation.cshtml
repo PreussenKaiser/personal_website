@@ -1,0 +1,77 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<nav class="pkaiser-nav">
+    <h1 class="logo">
+        <a asp-controller="Home" asp-action="Index">
+            PKaiser.dev
+        </a>
+        <button id="nav-collapse" class="pkaiser-collapse-nav nav-item">
+
+            &#9776;
+        </button>
+    </h1>
+    <ul class="nav-items float-start">
+        <li>
+            <a class="nav-item" asp-controller="Home"
+               asp-action="Index">
+
+                Home
+            </a>
+        </li>
+        <li>
+            <a class="nav-item" asp-controller="Blog"
+               asp-action="Index">
+
+                Blogs
+            </a>
+        </li>
+        <li>
+            <a class="nav-item" asp-controller="Project"
+               asp-action="Index">
+
+                Projects
+            </a>
+        </li>
+        @if (this.SignInManager.IsSignedIn(this.User))
+        {           
+            <li>
+                <a class="nav-item" asp-controller="Documentation"
+                   asp-action="Index">
+
+                    Documentation
+                </a>
+            </li>
+        }
+    </ul>
+    <ul class="nav-items float-end">
+        @if (this.SignInManager.IsSignedIn(this.User))
+        {
+            <li>
+                <a class="nav-item" asp-area="Identity"
+                   asp-page="/Account/Manage/Index">
+
+                    Welcome administrator!
+                </a>
+            </li>
+            <li>
+                <a class="nav-item" asp-area="Identity"
+                   asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = "" })">
+
+                    Logout
+                </a>
+            </li>
+        }
+        else
+        {
+            <li>
+                <a class="nav-item" asp-area="Identity"
+                   asp-page="/Account/Login">
+
+                    Admin? login here
+                </a>
+            </li>
+        }
+    </ul>
+</nav>

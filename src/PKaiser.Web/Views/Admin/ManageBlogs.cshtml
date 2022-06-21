@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-12 text-center p-3">
             <a class="btn btn-outline-light btn-lg" asp-area=""
-                asp-controller="Blog" asp-action="Post">
+                asp-controller="Blog" asp-action="AddBlog">
 
                 + Post Blog
             </a>
@@ -20,7 +20,7 @@
 
     <div class="row">
         <div class="col-12">
-            <table class="table">
+            <table class="table text-white">
                 <thead>
                     <tr>
                         <th scope="col">
@@ -45,15 +45,18 @@
                                 @blog.Title - @blog.DatePosted.ToString("MMMM-dd-yyyy")
                             </td>
                             <td>
-                                <a asp-controller="Blog" asp-action="ViewProject">
+                                <a asp-controller="Blog" asp-action="ViewBlog"
+                                   asp-route-id="@blog.Id">
                                     View
                                 </a>
                                 |
-                                <a asp-controller="Blog" asp-action="">
+                                <a asp-controller="Blog" asp-action="EditBlog"
+                                   asp-route-id="@blog.Id">
                                     Edit
                                 </a>
                                 |
-                                <a>
+                                <a asp-controller="Blog" asp-action="RemoveBlog"
+                                   asp-route-id="@blog.Id">
                                     Delete
                                 </a>
                             </td>
