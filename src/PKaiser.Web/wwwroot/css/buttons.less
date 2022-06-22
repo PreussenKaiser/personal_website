@@ -1,7 +1,38 @@
 ﻿.btn {
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 12px;
+    border: 0;
     padding: 10px 14px;
+    transition: .25s ease-in-out;
+
+    &:hover {
+
+    }
 }
 
 .btn-primary {
-    background-color: #512BD4;
+    background-color: @primary;
+    color: white;
+
+    &:hover {
+        background-color: darken(@primary, 7.5%);
+    }
+}
+
+.btn-danger {
+    background-color: rgb(169, 29, 42);
+    color: white;
+
+    &:hover {
+        background-color: darken(rgb(169, 29, 42), 7.5%);
+    }
+}
+
+.btn-outline {
+    outline: solid 3px white;
+
+    &:hover {
+        outline-color: transparent;
+    }
 }

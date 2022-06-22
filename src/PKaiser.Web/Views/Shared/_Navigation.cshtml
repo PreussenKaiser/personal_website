@@ -7,71 +7,74 @@
         <a asp-controller="Home" asp-action="Index">
             PKaiser.dev
         </a>
-        <button id="nav-collapse" class="pkaiser-collapse-nav nav-item">
+        <button id="nav-collapse" class="pkaiser-collapse-nav nav-item"
+                type="button">
 
             &#9776;
         </button>
     </h1>
-    <ul class="nav-items float-start">
-        <li>
-            <a class="nav-item" asp-controller="Home"
-               asp-action="Index">
-
-                Home
-            </a>
-        </li>
-        <li>
-            <a class="nav-item" asp-controller="Blog"
-               asp-action="Index">
-
-                Blogs
-            </a>
-        </li>
-        <li>
-            <a class="nav-item" asp-controller="Project"
-               asp-action="Index">
-
-                Projects
-            </a>
-        </li>
-        @if (this.SignInManager.IsSignedIn(this.User))
-        {           
+    <div class="nav-wrapper">
+        <ul class="nav-items float-start">
             <li>
-                <a class="nav-item" asp-controller="Documentation"
+                <a class="nav-item" asp-controller="Home"
                    asp-action="Index">
 
-                    Documentation
-                </a>
-            </li>
-        }
-    </ul>
-    <ul class="nav-items float-end">
-        @if (this.SignInManager.IsSignedIn(this.User))
-        {
-            <li>
-                <a class="nav-item" asp-area="Identity"
-                   asp-page="/Account/Manage/Index">
-
-                    Welcome administrator!
+                    Home
                 </a>
             </li>
             <li>
-                <a class="nav-item" asp-area="Identity"
-                   asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = "" })">
+                <a class="nav-item" asp-controller="Project"
+                   asp-action="Index">
 
-                    Logout
+                    Projects
                 </a>
             </li>
-        }
-        else
-        {
-            <li>
-                <a class="nav-item" asp-area="Identity"
-                   asp-page="/Account/Login">
+            @if (this.SignInManager.IsSignedIn(this.User))
+            {
+                <li>
+                    <a class="nav-item" asp-controller="Blog"
+                        asp-action="Index">
 
-                    Admin? login here
-                </a>
-            </li>
-        }
-    </ul>
+                        Blogs
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-item" asp-controller="Documentation"
+                       asp-action="Index">
+
+                        Documentation
+                    </a>
+                </li>
+            }
+        </ul>
+        <ul class="nav-items float-end ms-5">
+            @if (this.SignInManager.IsSignedIn(this.User))
+            {
+                <li>
+                    <a class="nav-item" asp-area="Identity"
+                       asp-page="/Account/Manage/Index">
+
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = "" })">
+                        <button class="nav-item" type="submit">
+                            Logout
+                        </button>
+                    </form>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a class="nav-item" asp-area="Identity"
+                       asp-page="/Account/Login">
+
+                        Login
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
 </nav>

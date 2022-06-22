@@ -13,21 +13,23 @@
     <div class="col-md-6">
         <form id="profile-form" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-floating text-black mb-3">
-                <input asp-for="Username" class="form-control" disabled />
-                <label asp-for="Username" class="form-label"></label>
-            </div>
-            <div class="form-floating text-black mb-3">
-                <input asp-for="Input.PhoneNumber" class="form-control"/>
-                <label asp-for="Input.PhoneNumber" class="form-label"></label>
-                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            <div class="mb-3">
+                <label class="form-label text-white" asp-for="Username"></label>
+                <input class="form-control" asp-for="Username" disabled />
             </div>
             <div class="mb-3">
-                <button id="update-profile-button" class="w-100 btn btn-lg btn-primary"
-                        type="submit">
-
-                        Save
-                </button>
+                <label class="form-label text-white" asp-for="Input.PhoneNumber"></label>
+                <input class="form-control" asp-for="Input.PhoneNumber"/>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <button class="btn btn-danger w-100" type="reset">Reset</button>
+                </div>
+                <div class="col-6">
+                    <button id="login-submit" class="btn btn-primary w-100"
+                            type="submit">Save</button>
+                </div>
             </div>
         </form>
     </div>

@@ -15,12 +15,14 @@
         <div class="col-md-3">
             <partial name="_ManageNav" />
         </div>
+
         <div class="col-md-9">
             @this.RenderBody()
         </div>
     </div>
 </div>
 
-@section Scripts {
+@section Scripts
+{
     @this.RenderSection("Scripts", required: false)
 }

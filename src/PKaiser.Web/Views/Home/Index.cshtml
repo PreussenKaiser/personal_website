@@ -7,20 +7,18 @@
     <div class="row">
         <div class="col-12">
             <div class="text-white text-center">
-                <h1 class="display-1 fw-normal">
+                <h1 class="display-1">
                     Karl Lukan
                 </h1>
-                <h2 class="display-5">
+                <h2 class="display-5 fw-regular">
                     Software Developer
                 </h2>
             </div>
         </div>
-        <div class="col-sm-3 mx-auto mt-3">
-            <div class="text-center">
-                <a class="btn btn-primary" href="#about_me">
-                    About Me
-                </a>
-            </div>
+        <div class="col-12 text-center mt-5">
+            <a class="btn btn-primary btn-outline" href="#about_me">
+                About Me
+            </a>
         </div>
     </div>
 </div>
@@ -34,17 +32,17 @@
             </div>
         </div>
         <div class="row text-white">
-            <div class="col-sm-6 d-flex align-items-center">
+            <div class="col-sm-8 d-flex align-items-center">
                 <p class="fs-5">
                     <b>I may not be great at explaining myself, so bear with me.</b>
                     <br/>
                     Currently, I'm a student in the IT Software Developer program at Mid-State Technical College.
-                    Learning is something we all have to do, some even like it.
+                    Learning is something we all do, some even like it.
                     What interests me is sharing my growth with others, be it in a professional environment, school, or just to random people I meet.
                 </p>
             </div>
-            <div class="col-sm-6 flex-center">
-                <img class="w-50 border border-primary border-5 rounded-circle" src="~/Resources/Images/me.jpg" />
+            <div class="col-sm-4 flex-center-sm">
+                <img class="w-50 profile-image" src="~/Resources/Images/me.jpg" />
             </div>
         </div>
         <div class="row mt-5">
@@ -72,7 +70,7 @@
                     <li>C#</li>
                     <li>Java</li>
                     <li>HTML/CSS/JS</li>
-                    <li>Bootstrap, Less.js, Typescript</li>
+                    <li>Bootstrap, Less.js, TypeScript</li>
                     <li>Xamarin/.NET MAUI</li>
                     <li>OOP</li>
                 </ul>
@@ -101,10 +99,10 @@
         <div class="row gy-4">
             @foreach (Project project in this.Model)
             {
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <component type="typeof(ProjectComponent)"
-                                param-Project="@project"
-                                render-mode="Static"/>
+                               param-Project="@project"
+                               render-mode="Static"/>
                 </div>
             }
         </div>

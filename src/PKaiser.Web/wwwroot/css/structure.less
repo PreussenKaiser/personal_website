@@ -13,5 +13,32 @@
 }
 
 .header {
-    border-radius: 0 0 32px 32px;
+    padding: 64px;
+    padding-top: 108px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    border-radius: @b-radius-sm;
+    padding: 16px;
+    transition: .15s ease-in-out;
+
+    &:hover {
+        outline: solid 4px white;
+    }
+}
+
+.card-title {
+    font-size: 1.45rem;
+    margin: 0;
+    margin-bottom: 16px;
+}
+
+.entity {
+    .flex-center();
+
+    height: 144px;
+    width: 144px;
 }

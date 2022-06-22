@@ -1,18 +1,13 @@
 ﻿@using PKaiser.Core.Models
 
-<div class="card bg-black text-white">
-    <div class="card-body">
-        <h3 class="h2 card-title">
-            @this.Project.Title
-        </h3>
-        <div class="card-text">
-            @this.Project.Details
-        </div>
-    </div>
-    <a class="btn btn-outline-info" href="Project/ViewProject?id=@this.Project.Id">
-        View
-    </a>
-</div>
+<a href="Project/ViewProject?id=@this.Project.Id" class="card bg-black text-white h-100">
+    <h3 class="card-title">
+        @this.Project.Title
+    </h3>
+    <p>
+        @this.Project.Details
+    </p>
+</a>
 
 @code
 {

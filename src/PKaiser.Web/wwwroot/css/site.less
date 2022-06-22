@@ -1,23 +1,19 @@
 ﻿@import 'variables.less';
+@import 'sizing.less';
+@import 'fonts.less';
 @import 'structure.less';
 @import 'backgrounds.less';
 @import 'positioning.less';
 @import 'buttons.less';
 @import 'navbars.less';
-@import 'footers.less';
+@import 'images.less';
+@import 'forms.less';
+@import 'footer.less';
 
 * {
+    font-family: OpenSansRegular;
     box-sizing: border-box;
-}
-
-html {
-    font-size: 14px;
-}
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
+    scroll-behavior: smooth;
 }
 
 html {
@@ -27,4 +23,14 @@ html {
 
 body {
     background-color: #212529;
+    margin: 0;
+
+    &::-webkit-scrollbar {
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: @primary;
+        border-radius: @b-radius;
+    }
 }

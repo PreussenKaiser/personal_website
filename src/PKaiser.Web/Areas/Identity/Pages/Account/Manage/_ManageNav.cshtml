@@ -1,37 +1,39 @@
-﻿<ul class="nav nav-pills flex-column">
-    <li class="nav-item">
-        <a class="nav-link @ManageNavPages.IndexNavClass(this.ViewContext)" id="profile"
-           asp-page="./Index">
+﻿<nav class="pkaiser-nav">
+    <ul class="nav-items flex-column w-100">
+        <li>
+            <a class="nav-item @ManageNavPages.IndexNavClass(this.ViewContext)" id="profile"
+               asp-page="./Index">
            
-           Profile
-       </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link @ManageNavPages.RegisterAdminClass(this.ViewContext)" id="register"
-           asp-page="./Register">
+               Profile
+           </a>
+        </li>
+        <li>
+            <a class="nav-item @ManageNavPages.RegisterAdminClass(this.ViewContext)" id="register"
+               asp-page="./Register">
            
-           Register Admin
-       </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link @ManageNavPages.EmailNavClass(this.ViewContext)" id="email"
-           asp-page="./Email">
+               Register Admin
+           </a>
+        </li>
+        <li>
+            <a class="nav-item @ManageNavPages.EmailNavClass(this.ViewContext)" id="email"
+               asp-page="./Email">
            
-           Email
-       </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link @ManageNavPages.ChangePasswordNavClass(this.ViewContext)" id="change-password"
-           asp-page="./ChangePassword">
+               Email
+           </a>
+        </li>
+        <li>
+            <a class="nav-item @ManageNavPages.ChangePasswordNavClass(this.ViewContext)" id="change-password"
+               asp-page="./ChangePassword">
 
-           Password
-       </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link @ManageNavPages.EntitiesNavClass(this.ViewContext)" id="entities"
-           asp-page="./Entities">
+               Password
+           </a>
+        </li>
+        <li>
+            <a class="nav-item @ManageNavPages.EntitiesNavClass(this.ViewContext)" id="entities"
+               asp-page="./Entities">
 
-           Entities
-       </a>
-    </li>
-</ul>
+               Entities
+           </a>
+        </li>
+    </ul>
+</nav>
