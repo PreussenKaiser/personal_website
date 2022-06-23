@@ -7,11 +7,11 @@
            param-Title="@this.ViewData["Title"]"
            render-mode="Static"/>
 
-<div class="container">
+<div class="container my-3">
     <div class="row">
         <div class="col-12 text-center p-3">
-            <a class="btn btn-outline-light btn-lg" asp-area=""
-                asp-controller="Blog" asp-action="AddBlog">
+            <a class="btn btn-primary btn-outline" asp-controller="Blog"
+               asp-action="AddBlog">
 
                 + Post Blog
             </a>
@@ -20,7 +20,7 @@
 
     <div class="row">
         <div class="col-12">
-            <table class="table text-white">
+            <table class="table text-white w-100 mt-3">
                 <thead>
                     <tr>
                         <th scope="col">
@@ -45,18 +45,21 @@
                                 @blog.Title - @blog.DatePosted.ToString("MMMM-dd-yyyy")
                             </td>
                             <td>
-                                <a asp-controller="Blog" asp-action="ViewBlog"
-                                   asp-route-id="@blog.Id">
+                                <a class="text-white" asp-controller="Blog"
+                                   asp-action="ViewBlog" asp-route-id="@blog.Id">
+
                                     View
                                 </a>
                                 |
-                                <a asp-controller="Blog" asp-action="EditBlog"
-                                   asp-route-id="@blog.Id">
+                                <a class="text-white" asp-controller="Blog"
+                                   asp-action="EditBlog" asp-route-id="@blog.Id">
+
                                     Edit
                                 </a>
                                 |
-                                <a asp-controller="Blog" asp-action="RemoveBlog"
-                                   asp-route-id="@blog.Id">
+                                <a class="text-white" asp-controller="Blog"
+                                   asp-action="RemoveBlog" asp-route-id="@blog.Id">
+
                                     Delete
                                 </a>
                             </td>
