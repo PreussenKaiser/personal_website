@@ -3,7 +3,7 @@
     this.ViewData["Title"] = "Home";
 }
 
-<div id="masthead" class="masthead bg-neptune flex-center">
+<div id="masthead" class="masthead bg-neptune flex-center flex-column">
     <div class="row">
         <div class="col-12">
             <div class="text-white text-center">
@@ -15,9 +15,27 @@
                 </h2>
             </div>
         </div>
-        <div class="col-12 text-center mt-5">
+    </div>
+    <div class="row mt-5 mb-3">
+        <div class="col-12 text-center">
             <a class="btn btn-primary btn-outline" href="#about_me">
                 About Me
+            </a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-6 pe-2">
+            <a class="btn btn-primary rounded" href="https://github.com/PreussenKaiser"
+               target="_blank">
+
+                <span class="github"></span>
+            </a>
+        </div>
+        <div class="col-6 ps-2">
+            <a class="btn btn-primary rounded" href="https://www.linkedin.com/in/karl-lukan-25723210a/"
+               target="_blank">
+
+                <span class="linkedin"></span>
             </a>
         </div>
     </div>
@@ -96,7 +114,7 @@
                 </h3>
             </div>
         </div>
-        <div class="row gy-sm-4 gy-3">
+        <div class="row gy-sm-4 gy-3 pt-3">
             @foreach (Project project in this.Model)
             {
                 <div class="col-sm-4">

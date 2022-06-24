@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Authorization;
 namespace PKaiser.Web.Controllers;
 
 /// <summary>
-/// The controller that displays blog views.
+/// The controller that renders blog views.
 /// </summary>
+[Authorize]
 public class BlogController : Controller
 {
     /// <summary>

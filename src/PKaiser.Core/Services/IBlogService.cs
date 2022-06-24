@@ -28,7 +28,7 @@ public interface IBlogService
     public Task<Blog> GetBlogAsync(int id);
 
     /// <summary>
-    /// Edits a blog in the service.
+    /// Updates a blog in the service.
     /// </summary>
     /// <param name="blog">The blog to edit.</param>
     /// <returns>Whether the task was completed or not.</returns>

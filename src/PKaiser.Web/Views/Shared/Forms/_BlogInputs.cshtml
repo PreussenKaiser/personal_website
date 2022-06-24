@@ -1,9 +1,4 @@
 ﻿@model Blog
-@{
-    Blog blog = this.Model is null
-                ? new()
-                : this.Model;
-}
 
 <div class="mb-3">
     <label class="form-label text-white" asp-for="Title"></label>
@@ -15,14 +10,13 @@
 <div class="mb-3">
     <label class="form-label text-white" asp-for="Details"></label>
     <input class="form-control" type="text"
-           asp-for="Details" value="@blog.Details"/>
+           asp-for="Details"/>
 
     <span class="text-info" asp-validation-for="Details"></span>
 </div>
 <div class="mb-3">
     <label class="form-label text-white" asp-for="Content"></label>
     <textarea asp-for="Content">
-        @blog.Content
     </textarea>
     <span class="text-info" asp-validation-for="Content"></span>
 </div>

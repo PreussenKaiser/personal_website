@@ -8,7 +8,7 @@ namespace PKaiser.Core.Services;
 public interface IProjectService
 {
     /// <summary>
-    /// Adds a project to the service asynchronously.
+    /// Creates a project in the service asynchronously.
     /// </summary>
     /// <param name="project">The project to add.</param>
     /// <returns>Whether the task was completed or not.</returns>

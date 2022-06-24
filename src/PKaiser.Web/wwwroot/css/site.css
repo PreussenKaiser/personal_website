@@ -10,6 +10,9 @@
 .w-50 {
   width: 50%;
 }
+.rounded {
+  border-radius: 50% !important;
+}
 @font-face {
   font-family: "OpenSansRegular";
   src: url("../Resources/Fonts/OpenSans-Regular.ttf");
@@ -64,7 +67,7 @@ h6,
   font-weight: 100;
 }
 .display-6 {
-  font-size: calc(1rem + 1.25vw);
+  font-size: calc(1.15rem + 2vh);
 }
 .fw-regular {
   font-family: OpenSansRegular;
@@ -87,7 +90,7 @@ h6,
 }
 .full-page-section {
   min-height: 100vh;
-  padding: 16px 0;
+  padding: 32px 0;
 }
 .full-page-section:nth-of-type(odd) {
   background-color: #1f1c22;
@@ -129,6 +132,7 @@ h6,
   background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('../Resources/Images/neptune.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 .flex-center {
   display: flex;
@@ -199,6 +203,11 @@ h6,
   background-color: transparent;
   color: white;
   text-decoration: none;
+  border-color: transparent;
+}
+.pkaiser-nav .logo > a {
+  padding-top: 10px;
+  padding-left: 8px;
 }
 .nav-wrapper {
   overflow: hidden;
@@ -349,6 +358,20 @@ input:checked + .slider:before {
 }
 .footer {
   padding: 16px;
+}
+.icon-position {
+  position: relative;
+  top: 2px;
+}
+.github:before {
+  position: relative;
+  top: 2px;
+  content: url("../Resources/Images/github.svg");
+}
+.linkedin:before {
+  position: relative;
+  top: 2px;
+  content: url("../Resources/Images/linkedin.svg");
 }
 * {
   font-family: OpenSansRegular;
