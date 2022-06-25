@@ -1,0 +1,149 @@
+﻿@page "/"
+
+@using PKaiser.Core.Models
+@using PKaiser.Core.Services
+@inject IProjectService projectService
+
+<div id="masthead" class="masthead bg-neptune flex-center flex-column">
+    <div class="row">
+        <div class="col-12">
+            <div class="text-white text-center">
+                <h1 class="display-1">
+                    Karl Lukan
+                </h1>
+                <h2 class="display-5 fw-regular">
+                    Software Developer
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5 mb-3">
+        <div class="col-12 text-center">
+            <a class="btn btn-primary btn-outline" href="#about_me">
+                About Me
+            </a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-6 pe-2">
+            <a class="btn btn-primary rounded" href="https://github.com/PreussenKaiser"
+               target="_blank">
+
+                <span class="github"></span>
+            </a>
+        </div>
+        <div class="col-6 ps-2">
+            <a class="btn btn-primary rounded" href="https://www.linkedin.com/in/karl-lukan-25723210a/"
+               target="_blank">
+
+                <span class="linkedin"></span>
+            </a>
+        </div>
+    </div>
+</div>
+<div id="about_me" class="full-page-section flex-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 p-4">
+                <h3 class="display-6 fw-normal text-white text-center">
+                    About Me
+                </h3>
+            </div>
+        </div>
+        <div class="row text-white">
+            <div class="col-sm-8 d-flex align-items-center">
+                <p>
+                    <b>I may not be great at explaining myself, so bear with me.</b>
+                    <br/>
+                    Currently, I'm a student in the IT Software Developer program at Mid-State Technical College.
+                    Learning is something we all do, some even like it.
+                    What interests me is sharing my growth with others, be it in a professional environment, school, or just to random people I meet.
+                </p>
+            </div>
+            <div class="col-sm-4 flex-center-sm">
+                <img class="w-50 profile-image" src="Resources/Images/me.jpg" />
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-sm-8 text-white">
+                <p>
+                    Now for what I believe I'm good at.
+                    Anybody could have written the previous paragraph, but I can back it up with my time as a tutor for Mid-State Technical College.
+                    There's obviously other examples of me collaborating with others, but that one serves as offical proof.
+                </p>
+                <p>
+                    I also love creating things, especially software.
+                    This may sound nerdy, but I really like architecting something that's scalable and maintainable.
+                    This can be detrimental however, as I typically choose the 'built very well but takes awhile to finish' approach vs. 'it is usable and met the deadline'.
+                </p>
+            </div>
+            <div class="col-sm-4 text-white">
+                <h4 class="h3 subheader">
+                    Comfortable with
+                    <br>
+                    <span class="h6 text-muted">(in no particular order)</span>
+                </h4>
+
+                <ul>
+                    <li>OOP</li>
+                    <li>Design Patterns</li>
+                    <li>Back-end Development</li>
+                    <li>Git</li>
+                    <li>.NET</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-sm-3 mx-auto">
+                <div class="text-center">
+                    <a class="btn btn-primary" href="#projects">
+                        Projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="projects" class="full-page-section flex-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 p-4">
+                <h3 class="display-6 fw-normal text-white text-center">
+                    Featured Projects
+                </h3>
+            </div>
+        </div>
+        <div class="row gy-sm-4 gy-3 pt-3">
+            @foreach (Project project in this.projects)
+            {
+                <div class="col-sm-4">
+                    <ProjectComponent Project="project"/>
+                </div>
+            }
+        </div>
+        <div class="row mt-5">
+            <div class="col-sm-3 mx-auto">
+                <div class="text-center">
+                    <a class="btn btn-primary" href="#masthead">
+                        Back to top
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code
+{
+    /// <summary>
+    /// Featured projects to display.
+    /// </summary>
+    private IEnumerable<Project> projects = new List<Project>();
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    protected override async Task OnInitializedAsync()
+        => this.projects = await this.projectService.GetAllFeaturedProjectsAsync();
+}

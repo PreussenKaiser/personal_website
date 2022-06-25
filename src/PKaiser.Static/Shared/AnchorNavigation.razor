@@ -1,0 +1,61 @@
+﻿@implements IDisposable
+
+@inject IJSRuntime jsRuntime
+@inject NavigationManager navigationManager
+
+@code
+{
+    /// <summary>
+    /// Disposes the component.
+    /// </summary>
+    public void Dispose()
+        => this.navigationManager.LocationChanged -= this.OnLocationChanged;
+
+    /// <summary>
+    /// Attaches navigation event arguments.
+    /// </summary>
+    protected override void OnInitialized()
+        => this.navigationManager.LocationChanged += this.OnLocationChanged;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="firstRender"></param>
+    /// <returns></returns>
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+        => await this.ScrollToFragment();
+
+    /// <summary>
+    /// The events to fire when the user navigates.
+    /// </summary>
+    /// <param name="sender">The object who initiated the event.</param>
+    /// <param name="args">Arguments for the event.</param>
+    private async void OnLocationChanged(object sender, LocationChangedEventArgs args)
+        => await this.ScrollToFragment();
+
+    /// <summary>
+    /// Scrolls to the anchor's destination.
+    /// </summary>
+    /// <returns>Whether the task was completed or not.</returns>
+    private async Task ScrollToFragment()
+    {
+        Uri uri = new(this.navigationManager.Uri, UriKind.Absolute);
+        string fragment = uri.Fragment.ToString();
+
+        if (fragment.StartsWith('#'))
+        {
+            string elementId = fragment.Substring(1);
+            int index = elementId.IndexOf(":~:", StringComparison.Ordinal);
+
+            if (index > 0)
+            {
+                elementId = elementId.Substring(0, index);
+            }
+
+            if (!string.IsNullOrEmpty(elementId))
+            {
+                await this.jsRuntime.InvokeVoidAsync("BlazorScrollToId", elementId);
+            }
+        }
+    }
+}

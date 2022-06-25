@@ -1,0 +1,35 @@
+﻿@import 'variables.less';
+@import 'sizing.less';
+@import 'fonts.less';
+@import 'structure.less';
+@import 'backgrounds.less';
+@import 'positioning.less';
+@import 'buttons.less';
+@import 'navbars.less';
+@import 'images.less';
+@import 'footer.less';
+@import 'icons.less';
+
+* {
+    font-family: OpenSansRegular;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: #212529;
+    margin: 0;
+
+    &::-webkit-scrollbar {
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: darkslategray;
+    }
+}
