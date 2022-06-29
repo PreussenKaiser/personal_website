@@ -93,14 +93,4 @@ public class ProjectService : IProjectService
         this.database.Projects.Remove(project);
         await this.database.SaveChangesAsync();
     }
-
-    /// <summary>
-    /// Sets a project as highlighted in the local database.
-    /// </summary>
-    /// <param name="projectId">The identifier of the project to hightlight.</param>
-    /// <returns>Whether the task was completed or not.</returns>
-    public Task FeatureProjectAsync(int projectId)
-    {
-        throw new NotImplementedException();
-    }
 }

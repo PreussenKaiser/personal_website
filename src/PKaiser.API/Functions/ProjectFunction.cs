@@ -33,7 +33,7 @@ public class ProjectFunction
     /// </summary>
     /// <param name="req">The request to handle.</param>
     /// <param name="logger">Logs response processes.</param>
-    /// <returns>Projects from the service.</returns>
+    /// <returns>Projects as JSON.</returns>
     [FunctionName("projects")]
     public async Task<IActionResult> GetAllProjects(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
@@ -41,7 +41,25 @@ public class ProjectFunction
     {
         logger.LogInformation("Processed request for projects.");
 
-        var projects = await projectService.GetAllProjectsAsync();
+        var projects = await this.projectService.GetAllProjectsAsync();
+        string json = JsonConvert.SerializeObject(projects);
+
+        return new OkObjectResult(json);
+    }
+
+    /// <summary>
+    /// Gets all featured projects from the API.
+    /// </summary>
+    /// <param name="req">The reqeust to handle.</param>
+    /// <param name="logger">Logs response processes.</param>
+    /// <returns>Featured projects as JSON.</returns>
+    public async Task<IActionResult> GetAllFeaturedProjects(
+        [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
+        ILogger logger)
+    {
+        logger.LogInformation("Processed request for featured projects.");
+
+        var projects = await this.projectService.GetAllFeaturedProjectsAsync();
         string json = JsonConvert.SerializeObject(projects);
 
         return new OkObjectResult(json);
@@ -52,7 +70,7 @@ public class ProjectFunction
     /// </summary>
     /// <param name="req">Th request to handle.</param>
     /// <param name="logger">Logs response processes.</param>
-    /// <returns>The found project.</returns>
+    /// <returns>The found project as JSON.</returns>
     [FunctionName("project")]
     public async Task<IActionResult> GetProject(
         [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,

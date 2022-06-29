@@ -46,11 +46,4 @@ public interface IProjectService
     /// <param name="project">The project to delete.</param>
     /// <returns>Whether the task was completed or not.</returns>
     public Task DeleteProjectAsync(Project project);
-
-    /// <summary>
-    /// Highlights a given podcast in the service asynchronously.
-    /// </summary>
-    /// <param name="projectId">The unique identifier of the podcast to highlight.</param>
-    /// <returns>Whether the task was completed or not.</returns>
-    public Task FeatureProjectAsync(int projectId);
 }

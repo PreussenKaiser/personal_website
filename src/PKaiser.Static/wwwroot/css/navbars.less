@@ -4,21 +4,36 @@
     padding: 16px 8px;
     transition: .25s ease-in-out;
 
-    .nav-item, .logo>a {
+    button {
         background-color: transparent;
+    }
+
+    .nav-item, .logo>a {
         color: white;
         text-decoration: none;
         border-color: transparent;
     }
 
-    .logo>a {
+    .logo > a {
         padding-top: 10px;
         padding-left: 8px;
     }
 }
 
+.active {
+    background-color: @primary;
+    border-radius: @b-radius;
+}
+
 .nav-wrapper {
     overflow: hidden;
+}
+
+.collapse {
+    @media (max-width: @screen-md) {
+        height: 0px;
+        padding: 0px !important;
+    }
 }
 
 .logo {
@@ -28,8 +43,9 @@
 }
 
 .nav-items {
-    margin: 0;
+    column-gap: 8px;
     list-style: none;
+    margin: 0;
     padding: 0;
 
     .nav-item {
@@ -40,8 +56,7 @@
         transition: .25s ease-in-out;
 
         &:hover {
-            background-color: @primary;
-            border-radius: @b-radius;
+            .active;
         }
     }
 }

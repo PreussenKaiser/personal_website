@@ -151,6 +151,7 @@ h6,
 }
 .position-fixed {
   position: fixed;
+  z-index: 1;
 }
 .ms-5 {
   margin-left: 64px;
@@ -198,9 +199,11 @@ h6,
   padding: 16px 8px;
   transition: 0.25s ease-in-out;
 }
+.pkaiser-nav button {
+  background-color: transparent;
+}
 .pkaiser-nav .nav-item,
 .pkaiser-nav .logo > a {
-  background-color: transparent;
   color: white;
   text-decoration: none;
   border-color: transparent;
@@ -209,8 +212,18 @@ h6,
   padding-top: 10px;
   padding-left: 8px;
 }
+.active {
+  background-color: #512BD4;
+  border-radius: 32px;
+}
 .nav-wrapper {
   overflow: hidden;
+}
+@media (max-width: 768px) {
+  .collapse {
+    height: 0px;
+    padding: 0px !important;
+  }
 }
 .logo {
   font-size: 1.5rem;
@@ -218,8 +231,9 @@ h6,
   margin: 0;
 }
 .nav-items {
-  margin: 0;
+  column-gap: 8px;
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 .nav-items .nav-item {
