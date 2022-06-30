@@ -8,13 +8,13 @@ namespace PKaiser.Infrastructure.Extensions;
 public static class HttpClientExtensions
 {
     /// <summary>
-    /// 
+    /// Deletes a JSON object from a document.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="client"></param>
-    /// <param name="requestUri"></param>
-    /// <param name="value"></param>
-    /// <returns></returns>
+    /// <typeparam name="T">The type to delete.</typeparam>
+    /// <param name="client">The client to send the request with.</param>
+    /// <param name="requestUri">The URI of the JSON.</param>
+    /// <param name="value">The value to delete.</param>
+    /// <returns>The status of the request.</returns>
     public static async Task<HttpResponseMessage> DeleteAsJsonAsync<T>(this HttpClient client, string requestUri, T value)
     {
         HttpRequestMessage request = new HttpRequestMessage

@@ -1,0 +1,34 @@
+﻿@page "/projects"
+
+@using PKaiser.Core.Models
+@using PKaiser.Core.Services
+
+@inject IProjectService projectService
+
+<HeaderComponent Title="Projects"/>
+
+<div class="container my-5">
+    <div class="row gy-sm-4 gy-3">
+        @foreach (Project project in this.projects)
+        {
+            <div class="col-sm-3">
+                <ProjectComponent Project="project"/>
+            </div>
+        }
+    </div>
+</div>
+
+@code
+{
+    /// <summary>
+    /// The projects to list.
+    /// </summary>
+    private IEnumerable<Project> projects = new List<Project>();
+
+    /// <summary>
+    /// Populates projects.
+    /// </summary>
+    /// <returns>Whether the task was completed or not.</returns>
+    protected override async Task OnInitializedAsync()
+        => this.projects = await this.projectService.GetAllProjectsAsync();
+}

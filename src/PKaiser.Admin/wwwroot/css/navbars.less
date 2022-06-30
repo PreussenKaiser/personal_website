@@ -4,36 +4,21 @@
     padding: 16px 8px;
     transition: .25s ease-in-out;
 
-    button {
-        background-color: transparent;
-    }
-
     .nav-item, .logo>a {
+        background-color: transparent;
         color: white;
         text-decoration: none;
         border-color: transparent;
     }
 
-    .logo > a {
+    .logo>a {
         padding-top: 10px;
         padding-left: 8px;
     }
 }
 
-.active {
-    background-color: @primary;
-    border-radius: @b-radius;
-}
-
 .nav-wrapper {
     overflow: hidden;
-}
-
-.collapse {
-    @media (max-width: @screen-md) {
-        height: 0px;
-        padding: 0px !important;
-    }
 }
 
 .logo {
@@ -43,9 +28,8 @@
 }
 
 .nav-items {
-    column-gap: 8px;
-    list-style: none;
     margin: 0;
+    list-style: none;
     padding: 0;
 
     .nav-item {
@@ -56,7 +40,8 @@
         transition: .25s ease-in-out;
 
         &:hover {
-            .active;
+            background-color: @primary;
+            border-radius: @b-radius;
         }
     }
 }
@@ -79,7 +64,7 @@
     }
 
     .nav-wrapper {
-        padding: 16px;
+        height: 0;
     }
 
     .pkaiser-collapse-nav {

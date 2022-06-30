@@ -25,12 +25,9 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WONDERFUL_WAVE_0A1125410 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "src/PKaiser.Static" # App source code path
-          api_location: "src/PKaiser.API" # Api source code path - optional
-          output_location: "wwwroot" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
+          app_location: "src/PKaiser.Web"
+          api_location: "src/PKaiser.API"
+          output_location: "wwwroot"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'

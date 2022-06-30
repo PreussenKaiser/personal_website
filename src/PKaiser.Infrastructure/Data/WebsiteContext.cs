@@ -23,9 +23,4 @@ public class WebsiteContext : IdentityDbContext
     /// Gets or sets projects from the context.
     /// </summary>
     public DbSet<Project> Projects { get; set; }
-
-    /// <summary>
-    /// Gets or sets blogs from the context.
-    /// </summary>
-    public DbSet<Blog> Blogs { get; set; }
 }

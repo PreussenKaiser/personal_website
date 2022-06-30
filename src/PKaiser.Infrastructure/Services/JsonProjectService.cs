@@ -69,7 +69,7 @@ public class JsonProjectService : IProjectService
     public async Task<Project> GetProjectAsync(int projectId)
     {
         var projects = await this.GetAllProjectsAsync();
-        Project foundProject = projects.First(p => p.Id == projectId);
+        Project foundProject = projects.FirstOrDefault(p => p.Id == projectId);
 
         return foundProject;
     }
