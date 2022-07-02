@@ -21,6 +21,9 @@
   font-family: "OpenSansSemibold";
   src: url("../Resources/Fonts/OpenSans-Semibold.ttf");
 }
+h1:focus {
+  outline: none;
+}
 h1,
 .h1,
 h2,
