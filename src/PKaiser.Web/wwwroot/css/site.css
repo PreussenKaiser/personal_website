@@ -10,6 +10,9 @@
 .w-50 {
   width: 50%;
 }
+.w-25 {
+  width: 25%;
+}
 .rounded {
   border-radius: 50% !important;
 }
@@ -63,7 +66,7 @@ h6,
   font-size: 1rem;
 }
 .display-1 {
-  font-size: calc(1.625rem + 2.5vw);
+  font-size: calc(2rem + 2.5vw);
 }
 .display-5 {
   font-size: calc(1rem + 1.5vw);
@@ -98,6 +101,11 @@ h6,
 .full-page-section:nth-of-type(odd) {
   background-color: #1f1c22;
 }
+@media (max-width: 556px) {
+  .full-page-section {
+    padding: 92px 0;
+  }
+}
 .header {
   padding: 64px 0;
   padding-top: 108px;
@@ -118,12 +126,45 @@ h6,
   margin: 0;
   margin-bottom: 16px;
 }
-.entity {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 144px;
-  width: 144px;
+.loading-page {
+  height: 100vh;
+}
+.loading-text {
+  opacity: 0;
+  height: 0;
+  max-width: 456px;
+  transition: opacity 1s ease-in-out;
+}
+@keyframes spinner {
+  0% {
+    stroke-dasharray: 1 98;
+    stroke-dashoffset: -105;
+  }
+  50% {
+    stroke-dasharray: 80 10;
+    stroke-dashoffset: -160;
+  }
+  100% {
+    stroke-dasharray: 1 98;
+    stroke-dashoffset: -300;
+  }
+}
+.spinner {
+  width: 15%;
+}
+.spinner #spinner {
+  transition: opacity 1s ease-in-out;
+}
+.spinner circle {
+  fill: transparent;
+  stroke: #512BD4;
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform-origin: center;
+  animation-name: spinner;
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier();
+  animation-iteration-count: infinite;
 }
 .bg-darken {
   background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));

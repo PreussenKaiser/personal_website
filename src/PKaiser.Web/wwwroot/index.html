@@ -10,8 +10,37 @@
         <link rel="stylesheet" href="css/site.min.css"/>
     </head>
     <body>
-        <div id="app"></div>
+        <div id="app">
+            <div class="loading-page flex-center flex-column">
+                <div class="spinner">
+                    <svg id="spinner" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50"
+                                r="45"/>
+                    </svg>
+                </div>
+                <div id="loading-text" class="loading-text text-white text-center px-3">
+                    <h1 class="h2">
+                        This is awkward...
+                    </h1>
+                    <p>
+                        Your browser may not support WebAssembly.
+                        If it does, then security settings are blocking the page from loading.
+                        Consider making an exception for this website in your browser's security settings.
+                    </p>
 
+                    <p class="mb-4">
+                        If you'd still like to know more about me, visit my GitHub.
+                    </p>
+
+                    <a class="btn btn-primary" href="https://github.com/PreussenKaiser"
+                       target="_blank">
+
+                        <span class="github me-2"></span>
+                        PreussenKaiser
+                    </a>
+                </div>
+            </div>
+        </div>
         <script>
             function BlazorScrollToId(id) {
                 const element = document.getElementById(id);
@@ -24,6 +53,8 @@
                 }
             }
         </script>
+
+        <script type="module" src="js/out/site.js"></script>
         <script src="_framework/blazor.webassembly.js"></script>
     </body>
 </html>
