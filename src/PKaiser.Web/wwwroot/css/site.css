@@ -241,7 +241,6 @@ h6,
   max-width: 996px;
   margin: 0 auto;
   padding: 16px 8px;
-  transition: 0.25s ease-in-out;
 }
 .pkaiser-nav button {
   background-color: transparent;
@@ -262,11 +261,12 @@ h6,
 }
 .nav-wrapper {
   overflow: hidden;
+  transition: height 0.25s ease-in-out;
 }
 @media (max-width: 768px) {
   .collapse {
-    height: 0px;
-    padding: 0px !important;
+    height: 0 !important;
+    padding: 0 !important;
   }
 }
 .logo {
@@ -306,7 +306,7 @@ h6,
     padding: 16px 8px;
   }
   .nav-wrapper {
-    padding: 16px;
+    height: 116px;
   }
   .pkaiser-collapse-nav {
     display: inline-block;

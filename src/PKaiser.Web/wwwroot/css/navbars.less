@@ -2,7 +2,6 @@
     max-width: @screen-lg;
     margin: 0 auto;
     padding: 16px 8px;
-    transition: .25s ease-in-out;
 
     button {
         background-color: transparent;
@@ -27,12 +26,13 @@
 
 .nav-wrapper {
     overflow: hidden;
+    transition: height .25s ease-in-out;
 }
 
 .collapse {
     @media (max-width: @screen-md) {
-        height: 0px;
-        padding: 0px !important;
+        height: 0 !important;
+        padding: 0 !important;
     }
 }
 
@@ -79,7 +79,7 @@
     }
 
     .nav-wrapper {
-        padding: 16px;
+        height: 116px;
     }
 
     .pkaiser-collapse-nav {
