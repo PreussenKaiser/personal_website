@@ -1,0 +1,40 @@
+﻿@using PKaiser.Core.Models;
+
+@if (this.Projects.Count() == 0)
+{
+    <div class="col-12">
+        <h5>No projects? Something went wrong.</h5>
+    </div>
+}
+else
+{
+    @foreach (var project in this.Projects)
+    {
+        <div class="col-sm-@this.columnCount">
+            <a href="projects/@project.Id"
+               class="card bg-black text-white h-100">
+                <h3 class="card-title">
+                    @project.Title
+                </h3>
+                <p>@project.Details</p>
+            </a>
+        </div>
+    }
+}
+
+@code {
+    /// <summary>
+    /// The amount of columns to display projects in.
+    /// </summary>
+    private int columnCount
+        => this.Projects.Count() >= 4
+            ? 3
+            : 12 / this.Projects.Count();
+
+    /// <summary>
+    /// Prpjects to display.
+    /// </summary>
+    /// <remarks>Will only set if null.</remarks>
+    [Parameter]
+    public IEnumerable<Project> Projects { get; set; } = Enumerable.Empty<Project>();
+}

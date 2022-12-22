@@ -15,7 +15,10 @@ public static class HttpClientExtensions
     /// <param name="requestUri">The URI of the JSON.</param>
     /// <param name="value">The value to delete.</param>
     /// <returns>The status of the request.</returns>
-    public static async Task<HttpResponseMessage> DeleteAsJsonAsync<T>(this HttpClient client, string requestUri, T value)
+    public static async Task<HttpResponseMessage> DeleteAsJsonAsync<T>(
+		this HttpClient client,
+		string requestUri,
+		T value)
     {
         HttpRequestMessage request = new HttpRequestMessage
         {

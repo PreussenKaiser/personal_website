@@ -1,0 +1,18 @@
+﻿@using PKaiser.Web.ViewModels;
+
+@page "/projects"
+@inject ProjectsViewModel ViewModel
+
+<PageTitle>PKaiser - Projects</PageTitle>
+<Header Title="Projects"/>
+
+<div class="container mb-4">
+    <div class="row gy-sm-4 gy-3">
+        <Binder BindingContext="this.ViewModel">
+            @if (this.ViewModel.Projects is not null)
+            {
+                <ProjectGrid Projects="this.ViewModel.Projects" />
+            }
+        </Binder>
+    </div>
+</div>

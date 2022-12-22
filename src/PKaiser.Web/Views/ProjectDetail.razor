@@ -1,0 +1,48 @@
+﻿@using PKaiser.Web.ViewModels;
+
+@page "/projects/{id:int}"
+@inject ProjectDetailViewModel ViewModel
+
+@if (this.ViewModel.Project is not null)
+{
+    <PageTitle>PKaiser - @this.ViewModel.Project.Title</PageTitle>
+    <Header Title="@this.ViewModel.Project.Title"/>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-white">
+            @if (this.ViewModel.Project is null)
+            {
+                <h5>Could not find project!</h5>
+            }
+            else
+            {
+                <p class="mb-5">
+                   <a class="btn btn-primary"
+                      href="@this.ViewModel.Project.Url"
+                      target="_blank">
+                       <span class="github me-2"></span> View on GitHub
+                   </a>
+                </p>
+
+                @((MarkupString)this.ViewModel.Project.Content)           
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    /// <summary>
+    /// The identifier of the Project to display.
+    /// </summary>
+    [Parameter]
+    public int Id { get; set; }
+
+    /// <summary>
+    /// Initializes <see cref="ProjectDetailViewModel"/> with the provied Project's identifier.'
+    /// </summary>
+    /// <returns>Whether the task was vompleted or not.</returns>
+    protected override Task OnParametersSetAsync()
+        => this.ViewModel.InitializProject(this.Id);
+}

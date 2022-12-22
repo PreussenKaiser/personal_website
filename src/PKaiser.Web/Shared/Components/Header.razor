@@ -1,0 +1,13 @@
+﻿<div class="header bg-black mb-4">
+    <h1 class="display-4 fw-normal text-white text-center m-sm-5">
+        @(this.Title ?? "Could not get title")
+    </h1>
+</div>
+
+@code {
+    /// <summary>
+    /// Gets or initializes the header's title.
+    /// </summary>
+    [Parameter]
+    public string? Title { get; init; }
+}

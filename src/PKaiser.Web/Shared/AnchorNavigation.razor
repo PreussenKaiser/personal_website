@@ -3,8 +3,7 @@
 @inject IJSRuntime jsRuntime
 @inject NavigationManager navigationManager
 
-@code
-{
+@code {
     /// <summary>
     /// Disposes the component.
     /// </summary>
@@ -30,7 +29,7 @@
     /// </summary>
     /// <param name="sender">The object who initiated the event.</param>
     /// <param name="args">Arguments for the event.</param>
-    private async void OnLocationChanged(object sender, LocationChangedEventArgs args)
+    private async void OnLocationChanged(object? sender, LocationChangedEventArgs args)
         => await this.ScrollToFragment();
 
     /// <summary>
@@ -48,14 +47,10 @@
             int index = elementId.IndexOf(":~:", StringComparison.Ordinal);
 
             if (index > 0)
-            {
                 elementId = elementId.Substring(0, index);
-            }
 
             if (!string.IsNullOrEmpty(elementId))
-            {
                 await this.jsRuntime.InvokeVoidAsync("BlazorScrollToId", elementId);
-            }
         }
     }
 }

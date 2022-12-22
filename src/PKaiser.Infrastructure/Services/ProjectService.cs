@@ -1,96 +1,97 @@
-﻿using PKaiser.Infrastructure.Data;
-
+﻿using PKaiser.Infrastructure.Extensions;
 using PKaiser.Core.Models;
 using PKaiser.Core.Services;
-using Microsoft.EntityFrameworkCore;
+using System.Net.Http.Json;
 
 namespace PKaiser.Infrastructure.Services;
 
 /// <summary>
-/// The service that gets projects from the local MSSQL database.
+/// Queries projects using a local JSON file.
 /// </summary>
-public class ProjectService : IProjectService
+public sealed class ProjectService : IProjectService
 {
     /// <summary>
-    /// The database context to get projects from.
+    /// The path to the JSON document.
     /// </summary>
-    private readonly WebsiteContext database;
+    private const string FILENAME = "data/projects.json";
+
+    /// <summary>
+    /// The http client to read and write JSON with.
+    /// </summary>
+    private readonly HttpClient client;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ProjectService"/> class.
     /// </summary>
-    /// <param name="database">The database context to get projects from.</param>
-    public ProjectService(WebsiteContext database)
-        => this.database = database;
+    /// <param name="client">The http client to read and write JSON with.</param>
+    public ProjectService(HttpClient client)
+        => this.client = client;
 
     /// <summary>
-    /// Creates a project in the local database asynchronusly.
+    /// Adds a <see cref="Project"/> to the JSON document.
     /// </summary>
-    /// <param name="project">The project to create.</param>
+    /// <param name="entity">The <see cref="Project"/> to add.</param>
     /// <returns>Whether the task was completed or not.</returns>
-    public async Task AddProjectAsync(Project project)
-    {
-        await this.database.Projects.AddAsync(project);
-        await this.database.SaveChangesAsync();
-    }
+    public async Task CreateAsync(Project entity)
+        => await this.client.PostAsJsonAsync(FILENAME, entity);
 
     /// <summary>
-    /// Gets all projects rom the local database asynchronously.
+    /// Gets all <see cref="Project"/> from the JSON document.
     /// </summary>
     /// <returns>An enumerable of projects.</returns>
-    public async Task<IEnumerable<Project>> GetAllProjectsAsync()
+    public async Task<IEnumerable<Project>?> GetAllAsync()
     {
-        IEnumerable<Project> projects = await this.database.Projects.ToListAsync();
+        var projects = await this.client.GetFromJsonAsync<Project[]>(FILENAME);
 
         return projects;
     }
 
     /// <summary>
-    /// Gets all featured projects from the database asynchronously.
+    /// Gets all featured projects from the JSON document.
     /// </summary>
-    /// <returns>An enumerable of featured projects.</returns>
-    public async Task<IEnumerable<Project>> GetAllFeaturedProjectsAsync()
+    /// <returns>Featured projects from the document.</returns>
+    public async Task<IEnumerable<Project>?> GetFeaturedAsync()
     {
-        List<Project> projects = await this.database.Projects.ToListAsync();
-        IEnumerable<Project> featuredProjects = this.database.Projects.Where(p => p.IsFeatured);
+        IEnumerable<Project>? projects = await this.GetAllAsync();
 
-        return featuredProjects;
+        projects = projects?.Where(p => p.IsFeatured);
+
+        return projects;
     }
 
     /// <summary>
-    /// Gets a project from te local database.
+    /// Gets a <see cref="Project"/> from the JSON document.
     /// </summary>
-    /// <param name="projectId">The identifier of the project o get.</param>
-    /// <returns>The first project in the database that matches the identifier.</returns>
-    public async Task<Project> GetProjectAsync(int projectId)
+    /// <param name="id">A value referencing <see cref="Project.Id"/>.</param>
+    /// <returns>The found project.</returns>
+    public async Task<Project?> GetAsync(int id)
     {
-        Project project = await this.database.Projects.FindAsync(projectId);
+        IEnumerable<Project>? projects = await this.GetAllAsync();
+        Project? foundProject = projects?.FirstOrDefault(p => p.Id == id);
 
-        return project;
+        return foundProject;
     }
 
     /// <summary>
-    /// Updates a project in the database asynchronously.
+    /// Updates a <see cref="Project"/> in the JSON document.
     /// </summary>
-    /// <param name="project">The model containing which project to update (using the identifier) as well as it's values.</param>
+    /// <param name="entity">The <see cref="Project"/> to update.</param>
     /// <returns>Whether the task was completed or not.</returns>
-    public async Task EditProjectAsync(Project project)
-    {
-        this.database.Projects.Update(project);
-        await this.database.SaveChangesAsync();
-    }
+    public async Task UpdateAsync(Project entity)
+        => await this.client.PutAsJsonAsync(FILENAME, entity);
 
     /// <summary>
-    /// Deletes a project from the local database.
+    /// Deletes a <see cref="Project"/> from the JSON document.
     /// </summary>
-    /// <param name="project">The project to delete.</param>
+    /// <param name="id">A value referencing <see cref="Project.Id"/>.</param>
     /// <returns>Whether the task was completed or not.</returns>
-    public async Task DeleteProjectAsync(Project project)
-    {
-        if (project is null)
-            return;
+    public async Task DeleteAsync(int id)
+	{
+		Project? project = await this.GetAsync(id);
 
-        this.database.Projects.Remove(project);
-        await this.database.SaveChangesAsync();
-    }
+		if (project is null)
+			return;
+
+        await this.client.DeleteAsJsonAsync(FILENAME, project);
+	}
 }

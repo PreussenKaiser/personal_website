@@ -3,9 +3,10 @@
         <a href="">
             Karl Lukan
         </a>
-        <button id="nav-collapse" class="pkaiser-collapse-nav nav-item"
-                type="button" @onclick="this.ToggleNavMenu">
-
+        <button id="nav-collapse"
+                class="pkaiser-collapse-nav nav-item"
+                type="button"
+                @onclick="this.ToggleNavMenu">
             &#9776;
         </button>
     </h1>
@@ -25,8 +26,7 @@
     </div>
 </nav>
 
-@code
-{
+@code {
     /// <summary>
     /// Whether to collapse navigation or not.
     /// </summary>
@@ -36,7 +36,7 @@
     /// Gets the CSS modifier for the navbar.
     /// </summary>
     private string navMenuCssClass
-        => this.collapseNavMenu ? "collapse" : null;
+        => this.collapseNavMenu ? "collapse" : string.Empty;
 
     /// <summary>
     /// Toggles navigation between collapsed and expanded.

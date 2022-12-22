@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKaiser.API", "PKaiser.API\PKaiser.API.csproj", "{68BB74A0-44E3-4C23-9A7A-F1808C8429FC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKaiser.Core", "PKaiser.Core\PKaiser.Core.csproj", "{88587997-487E-4DB0-9FF9-3D12F94133B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKaiser.Infrastructure", "PKaiser.Infrastructure\PKaiser.Infrastructure.csproj", "{82CCBF03-FF98-4067-9BB3-E68F4120DF25}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKaiser.Admin", "PKaiser.Admin\PKaiser.Admin.csproj", "{4498B9C5-8392-4C2C-8534-3F4F43E8B300}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKaiser.Web", "PKaiser.Web\PKaiser.Web.csproj", "{1D01B697-826B-4BEE-B2D1-DC9B43B3E014}"
 EndProject
@@ -26,10 +22,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{68BB74A0-44E3-4C23-9A7A-F1808C8429FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68BB74A0-44E3-4C23-9A7A-F1808C8429FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68BB74A0-44E3-4C23-9A7A-F1808C8429FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68BB74A0-44E3-4C23-9A7A-F1808C8429FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{88587997-487E-4DB0-9FF9-3D12F94133B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88587997-487E-4DB0-9FF9-3D12F94133B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88587997-487E-4DB0-9FF9-3D12F94133B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -38,10 +30,6 @@ Global
 		{82CCBF03-FF98-4067-9BB3-E68F4120DF25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82CCBF03-FF98-4067-9BB3-E68F4120DF25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82CCBF03-FF98-4067-9BB3-E68F4120DF25}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4498B9C5-8392-4C2C-8534-3F4F43E8B300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4498B9C5-8392-4C2C-8534-3F4F43E8B300}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4498B9C5-8392-4C2C-8534-3F4F43E8B300}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4498B9C5-8392-4C2C-8534-3F4F43E8B300}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1D01B697-826B-4BEE-B2D1-DC9B43B3E014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1D01B697-826B-4BEE-B2D1-DC9B43B3E014}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D01B697-826B-4BEE-B2D1-DC9B43B3E014}.Release|Any CPU.ActiveCfg = Release|Any CPU
