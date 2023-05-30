@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKaiser.Core", "PKaiser.Core\PKaiser.Core.csproj", "{88587997-487E-4DB0-9FF9-3D12F94133B5}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKaiser.Infrastructure", "PKaiser.Infrastructure\PKaiser.Infrastructure.csproj", "{82CCBF03-FF98-4067-9BB3-E68F4120DF25}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKaiser.Web", "PKaiser.Web\PKaiser.Web.csproj", "{1D01B697-826B-4BEE-B2D1-DC9B43B3E014}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DD749C07-73E2-44D5-8475-35017BC4C551}"
@@ -18,20 +14,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKaiser.Posts.API", "PKaiser.Posts.API\PKaiser.Posts.API.csproj", "{776C4604-226C-44EB-93C2-9998FDA82557}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKaiser.Tests.Unit.Posts.API", "..\tests\PKaiser.Tests.Unit.Posts.API\PKaiser.Tests.Unit.Posts.API.csproj", "{FD0EAAB9-72B4-4322-95C1-2826939398F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{88587997-487E-4DB0-9FF9-3D12F94133B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{88587997-487E-4DB0-9FF9-3D12F94133B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{88587997-487E-4DB0-9FF9-3D12F94133B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{88587997-487E-4DB0-9FF9-3D12F94133B5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{82CCBF03-FF98-4067-9BB3-E68F4120DF25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82CCBF03-FF98-4067-9BB3-E68F4120DF25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82CCBF03-FF98-4067-9BB3-E68F4120DF25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82CCBF03-FF98-4067-9BB3-E68F4120DF25}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1D01B697-826B-4BEE-B2D1-DC9B43B3E014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1D01B697-826B-4BEE-B2D1-DC9B43B3E014}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D01B697-826B-4BEE-B2D1-DC9B43B3E014}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -40,6 +30,10 @@ Global
 		{776C4604-226C-44EB-93C2-9998FDA82557}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{776C4604-226C-44EB-93C2-9998FDA82557}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{776C4604-226C-44EB-93C2-9998FDA82557}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD0EAAB9-72B4-4322-95C1-2826939398F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD0EAAB9-72B4-4322-95C1-2826939398F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD0EAAB9-72B4-4322-95C1-2826939398F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD0EAAB9-72B4-4322-95C1-2826939398F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

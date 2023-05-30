@@ -1,10 +1,15 @@
 ﻿namespace PKaiser.Posts.API.Options;
 
 /// <summary>
-/// Configurtion options for the projects database.
+/// Configuration options for the projects database.
 /// </summary>
 public sealed class ProjectDatabaseOptions
 {
+	/// <summary>
+	/// Key for options hierarchy.
+	/// </summary>
+	public const string PROJECT_DATABASE = "ProjectDatabase";
+
 	/// <summary>
 	/// Gets the connection string to the database.
 	/// </summary>
