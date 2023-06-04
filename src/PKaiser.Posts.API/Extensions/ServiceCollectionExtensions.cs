@@ -1,4 +1,5 @@
 ﻿using PKaiser.Posts.API.Domain.Repositories;
+using PKaiser.Posts.API.Infrastructure.Persistence;
 using PKaiser.Posts.API.Infrastructure.Repositories;
 using PKaiser.Posts.API.Options;
 
@@ -19,8 +20,9 @@ public static class ServiceCollectionExtensions
 		this IServiceCollection services,
 		IConfiguration configuration)
 	{
-		services.Configure<ProjectDatabaseOptions>(configuration.GetRequiredSection(ProjectDatabaseOptions.PROJECT_DATABASE));
-		services.Configure<AuthenticationOptions>(configuration.GetRequiredSection(AuthenticationOptions.AUTHENTICATION));
+		services
+			.Configure<PostsDatabaseOptions>(configuration.GetRequiredSection(PostsDatabaseOptions.PROJECT_DATABASE))
+			.Configure<AuthenticationOptions>(configuration.GetRequiredSection(AuthenticationOptions.AUTHENTICATION));
 
 		return services;
 	}
@@ -32,7 +34,9 @@ public static class ServiceCollectionExtensions
 	/// <returns>DI with data-access.</returns>
 	public static IServiceCollection ConfigureDataAccess(this IServiceCollection services)
 	{
-		services.AddSingleton<IProjectRepository, MongoProjectRepository>();
+		services
+			.AddSingleton<PostsContext>()
+			.AddSingleton<IProjectRepository, MongoProjectRepository>();
 
 		return services;
 	}

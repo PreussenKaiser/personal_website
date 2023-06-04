@@ -12,9 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKaiser.Posts.API", "PKaiser.Posts.API\PKaiser.Posts.API.csproj", "{776C4604-226C-44EB-93C2-9998FDA82557}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKaiser.Posts.API", "PKaiser.Posts.API\PKaiser.Posts.API.csproj", "{776C4604-226C-44EB-93C2-9998FDA82557}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKaiser.Tests.Unit.Posts.API", "..\tests\PKaiser.Tests.Unit.Posts.API\PKaiser.Tests.Unit.Posts.API.csproj", "{FD0EAAB9-72B4-4322-95C1-2826939398F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PKaiser.Tests.Unit.Posts.API", "..\tests\PKaiser.Tests.Unit.Posts.API\PKaiser.Tests.Unit.Posts.API.csproj", "{FD0EAAB9-72B4-4322-95C1-2826939398F7}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{67A64096-8B5F-47DE-A642-BDB0F75AEC5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +36,10 @@ Global
 		{FD0EAAB9-72B4-4322-95C1-2826939398F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD0EAAB9-72B4-4322-95C1-2826939398F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD0EAAB9-72B4-4322-95C1-2826939398F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67A64096-8B5F-47DE-A642-BDB0F75AEC5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67A64096-8B5F-47DE-A642-BDB0F75AEC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67A64096-8B5F-47DE-A642-BDB0F75AEC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67A64096-8B5F-47DE-A642-BDB0F75AEC5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

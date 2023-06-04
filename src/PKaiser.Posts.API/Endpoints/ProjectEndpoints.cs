@@ -18,12 +18,13 @@ public static class ProjectEndpoints
 	/// <returns>Configured endpoints.</returns>
 	public static IEndpointRouteBuilder MapProjects(
 		this IEndpointRouteBuilder builder,
-		string prefix)
+		in string prefix)
 	{
 		builder.MapGroup(prefix);
 
 		builder.MapPost(string.Empty, Post);
-		builder.MapGet("{id:guid?}", Search);
+		builder.MapGet("{id:guid}", Get);
+		builder.MapGet("page/{page:int}/count/{count:int}", GetPaginated);
 		builder.MapPut(string.Empty, Edit);
 		builder.MapDelete("{id:guid}", Remove);
 
@@ -42,28 +43,43 @@ public static class ProjectEndpoints
 	{
 		await projectRepository.PostAsync(project);
 
-		return Results.Created(string.Empty, project);
+		return Results.Created(project.Id.ToString(), project);
 	}
 
 	/// <summary>
-	/// GET request to search for projects.
+	/// GET request to retrieve a paginated list of projects.
 	/// </summary>
 	/// <param name="projectRepository">The <see cref="IProjectRepository"/> to query projects from.</param>
-	/// <param name="id"></param>
-	/// <param name="page"></param>
-	/// <param name="count"></param>
+	/// <param name="page">The page to get projects from.</param>
+	/// <param name="count">The amount of projects to get.</param>
 	/// <returns>The request's status.</returns>
-	private static async Task<IResult> Search(
+	private static async Task<IResult> GetPaginated(
 		[FromServices] IProjectRepository projectRepository,
-		Guid? id = null,
 		int page = 0,
 		int count = 8)
 	{
-		IEnumerable<Project> projects = id is null
-			? await projectRepository.SearchAsync(new AllSpecification<Project>(), page, count)
-			: await projectRepository.SearchAsync(new IdSpecification<Project>((Guid)id), page, count);
+		IEnumerable<Project> projects = await projectRepository.SearchAsync(new AllSpecification<Project>(), page, count);
 
 		return Results.Ok(projects);
+	}
+
+	/// <summary>
+	/// GET request to retrieve a single project by it's identifier.
+	/// </summary>
+	/// <param name="projectRepository">The <see cref="IProjectRepository"/> to query the project from.</param>
+	/// <param name="id">The project's unique identifier.</param>
+	/// <returns>The request's status.</returns>
+	private static async Task<IResult> Get(
+		[FromServices] IProjectRepository projectRepository,
+		Guid id)
+	{
+		Project? project = (await projectRepository
+			.SearchAsync(new IdSpecification<Project>(id), 0, 1))
+			.FirstOrDefault();
+
+		return project is null
+			? Results.BadRequest($"Could not find the project.")
+			: Results.Ok(project);
 	}
 
 	/// <summary>
@@ -82,7 +98,7 @@ public static class ProjectEndpoints
 	}
 
 	/// <summary>
-	/// 
+	/// DELETE request to remove a project.
 	/// </summary>
 	/// <param name="projectRepository">The <see cref="IProjectRepository"/> to delete the <see cref="Project"/> from.</param>
 	/// <param name="id"></param>

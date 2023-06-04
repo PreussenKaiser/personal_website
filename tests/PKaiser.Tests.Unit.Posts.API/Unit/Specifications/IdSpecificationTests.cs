@@ -1,10 +1,10 @@
 ﻿using PKaiser.Posts.API.Domain.Specifications;
-using PKaiser.Tests.Unit.Posts.API.Specifications.Entities;
+using PKaiser.Tests.Unit.Posts.API.Unit.Specifications.Entities;
 
-namespace PKaiser.Tests.Unit.Posts.API.Specifications;
+namespace PKaiser.Tests.Unit.Posts.API.Unit.Specifications;
 
 /// <summary>
-/// 
+/// Tests for <see cref="IdSpecification{TEntity}"/>.
 /// </summary>
 public sealed class IdSpecificationTests
 {

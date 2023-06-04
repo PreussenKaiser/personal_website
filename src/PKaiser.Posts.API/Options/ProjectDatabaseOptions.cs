@@ -3,12 +3,12 @@
 /// <summary>
 /// Configuration options for the projects database.
 /// </summary>
-public sealed class ProjectDatabaseOptions
+public sealed class PostsDatabaseOptions
 {
 	/// <summary>
 	/// Key for options hierarchy.
 	/// </summary>
-	public const string PROJECT_DATABASE = "ProjectDatabase";
+	public const string PROJECT_DATABASE = "PostsDatabase";
 
 	/// <summary>
 	/// Gets the connection string to the database.

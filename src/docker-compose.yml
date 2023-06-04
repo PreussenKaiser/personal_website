@@ -1,0 +1,21 @@
+version: '3.8'
+name: PKaiser
+
+services:
+  pkaiser.posts.db:
+    image: mongo:latest
+    container_name: PostsDB
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./src/PKaiser.Posts.API/Infrastructure/Migrations/initial-create.js:/docker-entrypoint-initdb.d/initial-create.js:ro
+
+  pkaiser.posts.api:
+    image: ${DOCKER_REGISTRY-}pkaiserpostsapi
+    container_name: PostsAPI
+    build:
+      context: .
+      dockerfile: PKaiser.Posts.API/Dockerfile
+    depends_on:
+      - pkaiser.posts.db

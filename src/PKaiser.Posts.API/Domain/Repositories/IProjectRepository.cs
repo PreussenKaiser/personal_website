@@ -22,7 +22,10 @@ public interface IProjectRepository
 	/// <param name="skip">The current page.</param>
 	/// <param name="take">The amount of projects to return.</param>
 	/// <returns>Projects which meet the specification.</returns>
-	Task<IEnumerable<Project>> SearchAsync(Specification<Project> specification, int skip, int take);
+	Task<IEnumerable<Project>> SearchAsync(
+		Specification<Project> specification,
+		int skip = 0,
+		int take = 8);
 
 	/// <summary>
 	/// Edits an existing project.

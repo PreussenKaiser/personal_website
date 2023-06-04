@@ -14,12 +14,14 @@ builder.Services
 
 var app = builder.Build();
 
-app.UseMiddleware<KeyMiddleware>();
-
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger()
 	   .UseSwaggerUI();
+}
+else if (app.Environment.IsProduction())
+{
+	app.UseMiddleware<KeyMiddleware>();
 }
 
 app.UseHttpsRedirection();
