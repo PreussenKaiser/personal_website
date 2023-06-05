@@ -26,6 +26,11 @@ else if (app.Environment.IsProduction())
 
 app.UseHttpsRedirection();
 
-app.MapProjects("projects");
+app.MapProjects("api/v1/projects");
 
 app.Run();
+
+/// <summary>
+/// For detection by integration tests.
+/// </summary>
+public partial class Program { }

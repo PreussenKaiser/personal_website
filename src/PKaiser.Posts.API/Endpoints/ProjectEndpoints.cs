@@ -25,6 +25,7 @@ public static class ProjectEndpoints
 		builder.MapPost(string.Empty, Post);
 		builder.MapGet("{id:guid}", Get);
 		builder.MapGet("page/{page:int}/count/{count:int}", GetPaginated);
+		builder.MapGet("featured", GetFeatured);
 		builder.MapPut(string.Empty, Edit);
 		builder.MapDelete("{id:guid}", Remove);
 
@@ -59,6 +60,18 @@ public static class ProjectEndpoints
 		int count = 8)
 	{
 		IEnumerable<Project> projects = await projectRepository.SearchAsync(new AllSpecification<Project>(), page, count);
+
+		return Results.Ok(projects);
+	}
+
+	/// <summary>
+	/// GET request for retrieving featured projects.
+	/// </summary>
+	/// <param name="projectRepository">The <see cref="IProjectRepository"/> to query projects from.</param>
+	/// <returns>The request's result.</returns>
+	private static async Task<IResult> GetFeatured([FromServices] IProjectRepository projectRepository)
+	{
+		IEnumerable<Project> projects = await projectRepository.SearchAsync(new FeaturedSpecification());
 
 		return Results.Ok(projects);
 	}

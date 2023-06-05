@@ -1,5 +1,5 @@
-﻿using PKaiser.Core.Models;
-using PKaiser.Core.Services;
+﻿using PKaiser.Web.Models;
+using PKaiser.Web.Services;
 
 namespace PKaiser.Web.ViewModels;
 
@@ -26,8 +26,7 @@ public sealed class ProjectsViewModel : ViewModelBase
 	{
 		this.projectService = projectService;
 
-		Task.Run(async ()
-			=> this.Projects = await this.projectService.GetAllAsync());
+		Task.Run(async () => this.Projects = await this.projectService.GetPaginatedAsync());
 	}
 
 	/// <summary>

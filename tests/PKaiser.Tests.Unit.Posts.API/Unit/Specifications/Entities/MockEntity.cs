@@ -5,6 +5,13 @@ namespace PKaiser.Tests.Unit.Posts.API.Unit.Specifications.Entities;
 /// <summary>
 /// Mock entity for testing specifications.
 /// </summary>
-internal class MockEntity : Entity
+internal sealed class MockEntity : Entity
 {
+	/// <summary>
+	/// Initializes the <see cref="MockEntity"/> entity.
+	/// </summary>
+	public MockEntity() : base()
+	{
+		
+	}
 }

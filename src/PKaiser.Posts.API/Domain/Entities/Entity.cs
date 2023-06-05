@@ -6,7 +6,15 @@
 public abstract class Entity
 {
 	/// <summary>
+	/// Initializes the <see cref="Entity"/> class.
+	/// </summary>
+	public Entity()
+	{
+		this.Id = Guid.NewGuid();
+	}
+
+	/// <summary>
 	/// Gets the entity's unique identifier.
 	/// </summary>
-	public required Guid Id { get; init; }
+	public Guid Id { get; init; }
 }

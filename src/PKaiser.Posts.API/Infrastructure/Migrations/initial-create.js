@@ -1,3 +1,60 @@
 db = db.getSiblingDB('Posts')
-
 db.createCollection('Projects')
+
+db.Projects.insertMany([
+    {
+        _id: UUID(),
+        Title: "Mootra",
+        Details: "A mood tracker app for Android built with Xamarin Forms.",
+        Url: "https://github.com/PreussenKaiser/Mootra",
+        Content: "<p dir=\"auto\"><strong>Features</strong></p>\r\n<ul dir=\"auto\">\r\n<li>Add, edit, or remove entries</li>\r\n<li>See a grouped timeline of past entries</li>\r\n<li>Light and dark theme support</li>\r\n</ul>\r\n<p><strong>What I learned</strong></p>\r\n<ul>\r\n<li>Perform CRUD operations against a local database</li>\r\n<li>Develop mobile applications with .NET</li>\r\n<li>Building UI with XAML</li>\r\n<li>Asynchronous programming</li>\r\n<li>Publishing Android applications to the Google Play Store</li>\r\n<li>MVVM</li>\r\n</ul>\r\n<p><strong>Summary</strong></p>\r\n<p>Mootra was a good first step into making medium-sized projects in .NET. My previous project built with the framework was DeleteBinObj, which was simply a small project to automate the submission process for one of my classes. I learned many things from this project that still stick with me, namely MVVM and asynchronous programming in C#.</p>\r\n<p>Since this was the first user-oriented project I worked on, it empowered me to&nbsp;<em>develop</em> my programming skills even further. The sky is the limit with what I can make, I just need time to work on it.</p>",
+        IsFeatured: true
+    },
+    {
+        _id: UUID(),
+        Title: "SharpCasts",
+        Details: "A podcast app for Android and Windows, built in .NET MAUI",
+        Url: "https://github.com/PreussenKaiser/SharpCasts",
+        Content: "<p><strong>Features</strong></p>\r\n<ul>\r\n<li>Search for and listen to podcasts</li>\r\n<li>Register/login to subscribed to your favorite channels</li>\r\n<li>Light and dark theme support</li>\r\n<li>Option to store your data locally or remotely</li>\r\n</ul>\r\n<p><strong>What I learned</strong></p>\r\n<ul>\r\n<li>.NET's IOC container</li>\r\n<li>Entity Framework Core</li>\r\n<li>Querying a GraphQL API (until I switched to a REST one)</li>\r\n<li>Clean architecture</li>\r\n<li>Managing a large project</li>\r\n<li>.NET MAUI</li>\r\n<li>Hosting and maintaining a Azure MSSQL database in the cloud</li>\r\n<li>Building performant UI with tons of data</li>\r\n</ul>\r\n<p><strong>Summary</strong></p>\r\n<p>My biggest project so far. In order to reduce dependencies, I refactored the application to use clean/hexagonal architecture, which reduced coupling between the main, data access, and core layers of the project. With the help of this and MAUI's IOC container, making modifications to high-level components weren't so nerve racking. This was also instrumental in allowing the user to keep their data locally, as I just needed to update the DbContextOptions on startup to facilitate it.</p>\r\n",
+        IsFeatured: true
+    },
+    {
+        _id: UUID(),
+        Title: "DeleteBinObj",
+        Details: "Deletes the \\bin and \\obj directories in a C# solution.",
+        Url: "https://github.com/PreussenKaiser/DeleteBinObj",
+        Content: "<p dir=\"auto\"><strong>Features</strong></p>\r\n<ul>\r\n<li>Find and delete those pesky binaries!</li>\r\n<li>Install as a command line tool for ease of use</li>\r\n</ul>\r\n<p dir=\"auto\"><strong>What I learned</strong></p>\r\n<ul>\r\n<li>Building CLI tools with C#</li>\r\n<li>Publishing packages to NuGet</li>\r\n</ul>\r\n<p dir=\"auto\"><strong>Instructions</strong></p>\r\n<p dir=\"auto\">If you don't have .NET get it <a href=\"https://dotnet.microsoft.com/en-us/download\" rel=\"nofollow\">here</a></p>\r\n<h4 dir=\"auto\"><a id=\"user-content-windows--macos\" class=\"anchor\" href=\"https://github.com/PreussenKaiser/DeleteBinObj#windows--macos\" aria-hidden=\"true\"></a>Windows &amp; MacOS</h4>\r\n<ol dir=\"auto\">\r\n<li>Run&nbsp;<code>dotnet tool install -g DeleteBinObj</code>&nbsp;in a terminal.</li>\r\n<li>Go into a VS project (where the .sln is).</li>\r\n<li>Run&nbsp;<code>deletebinobj</code>&nbsp;and enter the appropriate command.</li>\r\n<li>Bam! Your pesky binaries are gone.</li>\r\n</ol>",
+        IsFeatured: true
+    },
+    {
+        _id: UUID(),
+        Title: "MVC_Template",
+        Details: "A PHP MVC framework for building scalable web applications.",
+        Url: "https://github.com/PreussenKaiser/MVC_Template",
+        Content: "<p dir=\"auto\"><strong>Summary</strong></p>\r\n<p dir=\"auto\">This is an MVC framework for PHP applications that I made for school. It's supported in both Apache and Microsoft IIS environments as far as I know. To demonstrate it's functionality, there's a simple notes app included.</p>\r\n<p dir=\"auto\"><strong>What I learned:</strong></p>\r\n<ul>\r\n<li>Model-View-Controller architecture</li>\r\n<li>Building full-stack web applications</li>\r\n<li>PHP</li>\r\n<li>The Composer package manager</li>\r\n</ul>\r\n<p>PHP is criticized too much in my opinion. It definitely has it's quirks (OOP is held together by duct tape, <code>require</code> and <code>include</code> inserts directly into the page, etc), but I'd definitely use it over... <em>JavaScript</em>. The MVC compound pattern was very nice learning as it's the basis of a lot of application architecture; I still prefer MVVM however.</p>\r\n<p>Despite some nice things about PHP, I don't think I'll be using it for any personal projects. It's almost exclusively used for web app development, but I can do that with other technologies, namely C#.</p>",
+        IsFeatured: true
+    },
+    {
+        _id: UUID(),
+        Title: "CyberKitty",
+        Details: "A bot built with Discord.NET",
+        Url: "https://github.com/PreussenKaiser/CyberKitty",
+        Content: "<p><strong>Summary</strong></p>\r\n<p>A basic project. Built it to manage events for the Cyber Cougars IT club. Despite it's simplicity - it's just a CRUD program - I still had fun doing it since I like reading documentation (and a lot of reading was needed). You must think I'm weird for liking documentation and you're probably right, but it's an important skill whenever embarking with unfamiliar technologies.</p>\r\n<p><strong>What I learned:</strong></p>\r\n<ul>\r\n<li>How to read documentation concisely</li>\r\n<li>How make well-written documentation</li>\r\n<li>Discord.NET</li>\r\n<li>Managing Discord bots, although this is probably of little use to you</li>\r\n</ul>\r\n",
+        IsFeatured: true
+    },
+    {
+        _id: UUID(),
+        Title: "delete_bin_obj",
+        Details: "DeleteBinObj... now in Rust!",
+        Url: "https://github.com/PreussenKaiser/delete_bin_obj",
+        Content: "<p><strong>Summary</strong></p>\r\n<p>You may be thinking that this is a repost of a previous project - DeleteBinObj - and you're kinda right. It's the same program feature wise, but it's built in Rust, installable via Cargo, and is faster than the C# version!</p>\r\n<p><strong>What I learned:</strong></p>\r\n<ul>\r\n<li>Basic Rust syntax</li>\r\n<li>The Cargo package manager</li>\r\n<li>How I really appreciate the garbage collector</li>\r\n<li>That I really need to learn another paradigm other than OOP</li>\r\n</ul>",
+        IsFeatured: false
+    },
+    {
+        _id: UUID(),
+        Title: "lci-consultants",
+        Details: "The website for LCI Consultants.",
+        Url: "https://github.com/PreussenKaiser/lci-consultants",
+        Content: "<p><strong>Summary</strong></p>\r\n<p>I took my MVC_Template project and used it to build a commercial website. In hindsight it was a bit overkill since this could have easily been done using a static site. Regardless, because of MVC there is more room to grow the site in the future.</p>\r\n<p>My end goal wasn't to hone my PHP skills, or even my development skills; I wanted to improve my communication in a professional setting. I believe I accomplished this, as I consistently updated the client on the sites progress, as well as thoroughly discussing project requirements.</p>\r\n<p>By 'client' I really mean my uncle, I'll be upfront about that. But my claims about communication were truthful and this experience will certainly help me in my career. Soft skills are often overlooked by developers, even though it's one of the most important things to focus on.</p>\r\n<p><strong>What I Learned:</strong></p>\r\n<ul>\r\n<li>Communicating with clients to ensure their satisfaction</li>\r\n<li>Hosting on an Apache server</li>\r\n<li>cPanel</li>\r\n<li>A2Hosting</li>\r\n</ul>",
+        IsFeatured: true
+    }])

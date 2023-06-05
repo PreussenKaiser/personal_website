@@ -1,5 +1,5 @@
-﻿using PKaiser.Core.Models;
-using PKaiser.Core.Services;
+﻿using PKaiser.Web.Models;
+using PKaiser.Web.Services;
 
 namespace PKaiser.Web.ViewModels;
 
@@ -23,7 +23,9 @@ public sealed class ProjectDetailViewModel : ViewModelBase
 	/// </summary>
 	/// <param name="projectService">The service to get details for <see cref="Project"/> with.</param>
 	public ProjectDetailViewModel(IProjectService projectService)
-		=> this.projectService = projectService;
+	{
+		this.projectService = projectService;
+	}
 
 	/// <summary>
 	/// Gets the project to detail.
@@ -39,6 +41,6 @@ public sealed class ProjectDetailViewModel : ViewModelBase
 	/// </summary>
 	/// <param name="id"> value referencing <see cref="Project.Id"/>.</param>
 	/// <returns>Whether the task was completed or not.</returns>
-	public async Task InitializProject(int id)
+	public async Task InitializeProject(Guid id)
 		=> this.Project = await this.projectService.GetAsync(id);
 }

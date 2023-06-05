@@ -1,6 +1,6 @@
 ﻿@using PKaiser.Web.ViewModels;
 
-@page "/projects/{id:int}"
+@page "/projects/{id:guid}"
 @inject ProjectDetailViewModel ViewModel
 
 @if (this.ViewModel.Project is not null)
@@ -26,7 +26,7 @@
                    </a>
                 </p>
 
-                @((MarkupString)this.ViewModel.Project.Content)           
+                @this.ViewModel.Project.Content         
             }
         </div>
     </div>
@@ -37,12 +37,12 @@
     /// The identifier of the Project to display.
     /// </summary>
     [Parameter]
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     /// <summary>
     /// Initializes <see cref="ProjectDetailViewModel"/> with the provied Project's identifier.'
     /// </summary>
     /// <returns>Whether the task was vompleted or not.</returns>
     protected override Task OnParametersSetAsync()
-        => this.ViewModel.InitializProject(this.Id);
+        => this.ViewModel.InitializeProject(this.Id);
 }
